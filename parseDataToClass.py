@@ -31,7 +31,7 @@ class ParseDataToClass:
 
                 elif line.startswith("CR"):
                     str.parseDataToCR(CR, line)
-                    #print (line, end = '')
+
                 else:
                     print ("Recheck your Input.txt file for consistency.\n")
                     print ("Question should use the abbreviation 'Q:' ")
@@ -63,14 +63,16 @@ class ParseDataToClass:
 
         return questionFrame
 
-
+    # an array of frames
     def parseDataToFrame(self, frames, str):
         frames.append(str.rstrip('\n'))
         return frames
 
+    #an array of compatibility relations (CR)
     def parseDataToCR(self, CR, str):
         CR.append(str)
         return CR
+
 
 
 
