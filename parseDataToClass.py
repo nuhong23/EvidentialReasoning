@@ -50,8 +50,7 @@ class ParseDataToClass:
             print("The directory path to Input.txt file is not valid.\n")
             reopen = ParseDataToClass()
             reopen.openInputFile()
-        else:
-            inFile.close()
+
 
     # packages two arrays into a dictionary
     def parseDataToQuestionFrame(self, str):
