@@ -1,4 +1,3 @@
-#! /usr/bin/python
 
 from parseDataToClass import *
 
@@ -7,7 +6,6 @@ def main():
 
     parse = ParseDataToClass()
     parse.openInputFile()
-
 
 
 

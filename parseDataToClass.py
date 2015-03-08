@@ -1,5 +1,6 @@
 # Author Tami Hong Le
 # 3/7/2015
+
 class ParseDataToClass:
 
 
@@ -58,7 +59,6 @@ class ParseDataToClass:
         splitter = str.split(':',3)
         quest = [splitter[1], splitter[2]]
         answers = [splitter[3:len(splitter)]]
-
         questionFrame = {splitter[0]:[quest,answers]}
 
         return questionFrame
@@ -66,11 +66,13 @@ class ParseDataToClass:
     # an array of frames
     def parseDataToFrame(self, frames, str):
         frames.append(str.rstrip('\n'))
+
         return frames
 
     #an array of compatibility relations (CR)
     def parseDataToCR(self, CR, str):
         CR.append(str)
+
         return CR
 
 
