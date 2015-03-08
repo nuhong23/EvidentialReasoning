@@ -71,7 +71,7 @@ class ParseDataToClass:
 
     #an array of compatibility relations (CR)
     def parseDataToCR(self, CR, str):
-        CR.append(str)
+        CR.append(str.rstrip('\n'))
 
         return CR
 

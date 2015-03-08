@@ -1,6 +1,6 @@
 
 from parseDataToClass import *
-
+from frame import *
 
 def main():
 
