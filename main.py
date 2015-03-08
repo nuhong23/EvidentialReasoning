@@ -1,6 +1,6 @@
 #! /usr/bin/python
 
-from parseDataToClass import ParseDataToClass
+from parseDataToClass import *
 
 
 def main():
