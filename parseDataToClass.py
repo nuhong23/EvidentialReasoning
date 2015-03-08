@@ -65,6 +65,7 @@ class ParseDataToClass:
     def parseDataToFrame(self, frames, str, count):
         frames.append(str)
         print(frames)
+
         return frames
 
 
