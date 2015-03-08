@@ -1,4 +1,4 @@
-Question: Q: Is the experimental result credible and reliable?: Very credible and reliable, Good credibility and reliability, Acceptable credibility and reliability, Not credible or reliable
+Q: Question: Is the experimental result credible and reliable?: Very credible and reliable, Good credibility and reliability, Acceptable credibility and reliability, Not credible or reliable
 B1: ENVC: TRUE: Procedure: PM: Effective, Ineffective
 B1: ENVC: FALSE: Blanks: BL: No contamination, Contaminated
 B1: ENVC: FALSE: Wavelength: WL: TiO2-DNA bounded, Not bounded
