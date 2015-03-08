@@ -12,6 +12,7 @@ class ParseDataToClass:
         try:
             count = 0
             frames = []
+            CR = []
 
             dir_path = input("Enter the path to the Input.txt file:   ")
             inFile = open(dir_path, 'r')
@@ -24,14 +25,13 @@ class ParseDataToClass:
                 #send strings to methods by keyword
                 if line.startswith('Q'):
                     str.parseDataToQuestionFrame(line)
-                    print (line, end = '')
+
                 elif line.startswith('B'):
-                    count = count +1
-                    str.parseDataToFrame(frames,line, count)
-                    print (line, end = '')
+                    str.parseDataToFrame(frames, line)
+
                 elif line.startswith("CR"):
-                    str.parseDataToCR(str)
-                    print (line, end = '')
+                    str.parseDataToCR(CR, line)
+                    #print (line, end = '')
                 else:
                     print ("Recheck your Input.txt file for consistency.\n")
                     print ("Question should use the abbreviation 'Q:' ")
@@ -40,6 +40,8 @@ class ParseDataToClass:
                     print ("The error exist in line --->     " + line, end = '')
                     inFile.close()
                     break
+            print(frames)
+            print(CR)
             inFile.close()
 
         #throw an exception and reopen the openInputFile method again
@@ -62,17 +64,16 @@ class ParseDataToClass:
         return questionFrame
 
 
-    def parseDataToFrame(self, frames, str, count):
-        frames.append(str)
-        print(frames)
-
+    def parseDataToFrame(self, frames, str):
+        frames.append(str.rstrip('\n'))
         return frames
 
+    def parseDataToCR(self, CR, str):
+        CR.append(str)
+        return CR
 
 
 
-    def parseDataToCR(self,str):
-        print ("Entered CR")
 
 
 '''
