@@ -10,23 +10,38 @@
 
 class ParseDataToClass:
 
+
     def __init__(self):
         pass
 
     def openInputFile(self):
 
-        dir_path = input("Enter the path to the Input.txt file: ")
-        file = open(dir_path + '/Input.txt', 'r')
-        print(file.readline())
+        #open file, if path does not exist, print error message
+        try:
+            dir_path = input("Enter the path to the Input.txt file: ")
+            file = open(dir_path + '/Input.txt', 'r')
+            print(file.readline())
 
-        for line in file:
+            #parse the file for keywords of frame and CR
+            for line in file:
+                if line.read(1) =="B":
+                    print (line.read(1), end = '')
 
-            print(line, end = '')
-        return
+        #throw an exception and reopen the openInputFile method again
+        except FileNotFoundError:
+            print("The Input.txt file you have entered is not valid. Make sure the text file is named ""Input.txt""")
+            reopen = ParseDataToClass()
+            reopen.openInputFile()
+        else:
+            file.close()
 
 
-dog = ParseDataToClass()
-dog.openInputFile()
+
+    def parseDataToFrame(self):
+        pass
+
+    def parseDataToCR(self):
+        pass
 
 
 '''

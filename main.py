@@ -11,9 +11,19 @@ def main():
 
 
 
+
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
+    print("Entered main function")
     main()
-    print ("Entered main function.")
 else:
     print("Did not enter main function.")
 
