@@ -3,6 +3,8 @@
 
 class ParseDataToClass:
 
+    frames = []
+    CR = []
 
     def __init__(self):
         pass
@@ -12,8 +14,6 @@ class ParseDataToClass:
         #open file, if path does not exist, print error message
         try:
             count = 0
-            frames = []
-            CR = []
 
             dir_path = input("Enter the path to the Input.txt file:   ")
             inFile = open(dir_path, 'r')
@@ -28,10 +28,10 @@ class ParseDataToClass:
                     str.parseDataToQuestionFrame(line)
 
                 elif line.startswith('B'):
-                    str.parseDataToFrame(frames, line)
+                    str.parseDataToFrame(str.frames, line)
 
                 elif line.startswith("CR"):
-                    str.parseDataToCR(CR, line)
+                    str.parseDataToCR(str.CR, line)
 
                 else:
                     print ("Recheck your Input.txt file for consistency.\n")
@@ -41,9 +41,9 @@ class ParseDataToClass:
                     print ("The error exist in line --->     " + line, end = '')
                     inFile.close()
                     break
-            print(frames)
-            print(CR)
+
             inFile.close()
+            return str.frames, str.CR
 
         #throw an exception and reopen the openInputFile method again
         except FileNotFoundError:

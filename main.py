@@ -7,7 +7,8 @@ def main():
     parse = ParseDataToClass()
     parse.openInputFile()
 
-
+    print (parse.frames)
+    print(parse.CR)
 
 
 
