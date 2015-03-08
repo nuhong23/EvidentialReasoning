@@ -2,6 +2,7 @@
 # 3/7/2015
 class ParseDataToClass:
 
+
     def __init__(self):
         pass
 
@@ -9,6 +10,9 @@ class ParseDataToClass:
 
         #open file, if path does not exist, print error message
         try:
+            count = 0
+            frames = []
+
             dir_path = input("Enter the path to the Input.txt file:   ")
             inFile = open(dir_path, 'r')
 
@@ -22,7 +26,8 @@ class ParseDataToClass:
                     str.parseDataToQuestionFrame(line)
                     print (line, end = '')
                 elif line.startswith('B'):
-                    str.parseDataToFrame(line)
+                    count = count +1
+                    str.parseDataToFrame(frames,line, count)
                     print (line, end = '')
                 elif line.startswith("CR"):
                     str.parseDataToCR(str)
@@ -32,7 +37,7 @@ class ParseDataToClass:
                     print ("Question should use the abbreviation 'Q:' ")
                     print ("Frames should use the abbreviation 'B#:' where # is the sequential number starting from 1")
                     print ("Compatibility relations should use the abbreviation 'CR#:' where # is the sequential number starting from 1\n")
-                    print ("The error exist in the line --->     " + line, end = '')
+                    print ("The error exist in line --->     " + line, end = '')
                     inFile.close()
                     break
             inFile.close()
@@ -45,7 +50,7 @@ class ParseDataToClass:
         else:
             inFile.close()
 
-    #creates a dictionary for the question frame with two arrays
+    # packages two arrays into a dictionary
     def parseDataToQuestionFrame(self, str):
 
         splitter = str.split(':',3)
@@ -57,11 +62,14 @@ class ParseDataToClass:
         return questionFrame
 
 
-    def parseDataToFrame(self, str):
+    def parseDataToFrame(self, frames, str, count):
+        frames.append(str)
+        print(frames)
 
-        print ("Entered FRAME")
+        return frames
 
-        splitter = str.split(':')
+
+
 
     def parseDataToCR(self,str):
         print ("Entered CR")
