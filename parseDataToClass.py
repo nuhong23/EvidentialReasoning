@@ -45,8 +45,7 @@ class ParseDataToClass:
         #throw an exception and reopen the openInputFile method again
         except FileNotFoundError:
             print("The directory path to Input.txt file is not valid.\n")
-            reopen = ParseDataToClass()
-            reopen.openInputFile()
+            self.openInputFile()
 
 
     # packages two arrays into a dictionary
