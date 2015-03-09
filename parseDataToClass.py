@@ -20,7 +20,7 @@ class ParseDataToClass:
             #parse the file by keywords: Question = Q, frame = B, and compatibility relations = CR
             for line in inFile:
 
-                #send strings to methods by keyword
+                #send strings to methods by keywords
                 if line.startswith('Q'):
                     self.parseDataToQuestionFrame(line)
 
@@ -68,6 +68,8 @@ class ParseDataToClass:
         self.CR.append(str.rstrip('\n'))
 
         return self.CR
+
+
 
 
     if __name__ == "__main__":
