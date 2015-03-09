@@ -70,10 +70,6 @@ class ParseDataToClass:
         return self.CR
 
 
-
-
-
-
     if __name__ == "__main__":
         openInputFile()
 
