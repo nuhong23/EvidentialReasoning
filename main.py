@@ -10,6 +10,8 @@ def main():
     print (parse.frames)
     print(parse.CR)
 
+    frames = Frame(parse.frames)
+
 
 
 

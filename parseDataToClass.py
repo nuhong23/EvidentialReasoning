@@ -5,6 +5,7 @@ class ParseDataToClass:
 
     frames = []
     CR = []
+    questionFrame = []
 
     def __init__(self):
         pass
@@ -13,25 +14,21 @@ class ParseDataToClass:
 
         #open file, if path does not exist, print error message
         try:
-            count = 0
-
             dir_path = input("Enter the path to the Input.txt file:   ")
             inFile = open(dir_path, 'r')
-
-            str = ParseDataToClass()
 
             #parse the file by keywords: Question = Q, frame = B, and compatibility relations = CR
             for line in inFile:
 
                 #send strings to methods by keyword
                 if line.startswith('Q'):
-                    str.parseDataToQuestionFrame(line)
+                    self.parseDataToQuestionFrame(line)
 
                 elif line.startswith('B'):
-                    str.parseDataToFrame(str.frames, line)
+                    self.parseDataToFrame(line)
 
                 elif line.startswith("CR"):
-                    str.parseDataToCR(str.CR, line)
+                    self.parseDataToCR(line)
 
                 else:
                     print ("Recheck your Input.txt file for consistency.\n")
@@ -43,7 +40,7 @@ class ParseDataToClass:
                     break
 
             inFile.close()
-            return str.frames, str.CR
+            return self.frames, self.CR
 
         #throw an exception and reopen the openInputFile method again
         except FileNotFoundError:
@@ -58,21 +55,21 @@ class ParseDataToClass:
         splitter = str.split(':',3)
         quest = [splitter[1], splitter[2]]
         answers = [splitter[3:len(splitter)]]
-        questionFrame = {splitter[0]:[quest,answers]}
+        self.questionFrame = {splitter[0]:[quest,answers]}
 
-        return questionFrame
+        return self.questionFrame
 
     # an array of frames
-    def parseDataToFrame(self, frames, str):
-        frames.append(str.rstrip('\n'))
+    def parseDataToFrame(self, str):
+        self.frames.append(str.rstrip('\n'))
 
-        return frames
+        return self.frames
 
     #an array of compatibility relations (CR)
-    def parseDataToCR(self, CR, str):
-        CR.append(str.rstrip('\n'))
+    def parseDataToCR(self, str):
+        self.CR.append(str.rstrip('\n'))
 
-        return CR
+        return self.CR
 
 
 
