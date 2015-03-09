@@ -1,6 +1,7 @@
 
 from parseDataToClass import *
 from frame import *
+from  CompatibilityRelations import *
 
 def main():
 
@@ -11,6 +12,9 @@ def main():
     print(parse.CR)
 
     #frames = Frame(parse.frames)
+    #frames.organize_propositions(frames)
+
+    #cr = CR(frames.crossProductFrames, parse.questionFramestion)
 
 
 

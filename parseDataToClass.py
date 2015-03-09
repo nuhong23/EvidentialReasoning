@@ -40,7 +40,7 @@ class ParseDataToClass:
                     break
 
             inFile.close()
-            return self.frames, self.CR
+            return self.frames, self.CR, self.questionFrame
 
         #throw an exception and reopen the openInputFile method again
         except FileNotFoundError:
@@ -54,6 +54,7 @@ class ParseDataToClass:
         question = [splitter[1], splitter[2]]
         answers = [splitter[3:len(splitter)]]
         self.questionFrame = {splitter[0]:[question,answers]}
+        print(self.questionFrame)
 
         return self.questionFrame
 
