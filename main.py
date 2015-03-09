@@ -10,7 +10,7 @@ def main():
     print (parse.frames)
     print(parse.CR)
 
-    frames = Frame(parse.frames)
+    #frames = Frame(parse.frames)
 
 
 

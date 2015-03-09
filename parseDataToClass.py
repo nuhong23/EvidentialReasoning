@@ -51,9 +51,9 @@ class ParseDataToClass:
     def parseDataToQuestionFrame(self, str):
 
         splitter = str.split(':',3)
-        quest = [splitter[1], splitter[2]]
+        question = [splitter[1], splitter[2]]
         answers = [splitter[3:len(splitter)]]
-        self.questionFrame = {splitter[0]:[quest,answers]}
+        self.questionFrame = {splitter[0]:[question,answers]}
 
         return self.questionFrame
 
