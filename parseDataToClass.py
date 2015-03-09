@@ -47,7 +47,6 @@ class ParseDataToClass:
             print("The directory path to Input.txt file is not valid.\n")
             self.openInputFile()
 
-
     # packages two arrays into a dictionary
     def parseDataToQuestionFrame(self, str):
 
@@ -75,11 +74,8 @@ class ParseDataToClass:
 
 
 
-'''
     if __name__ == "__main__":
         openInputFile()
-        print("ParseDataToClass executed from within")
-    else:
-        print("ParseDataToClass imported into another module")
 
-'''
+
+
