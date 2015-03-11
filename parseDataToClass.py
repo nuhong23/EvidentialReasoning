@@ -25,7 +25,7 @@ class ParseDataToClass:
                 if line.startswith('Q'):
                     self.parseDataToQuestionFrame(line)
 
-                elif line.startswith('B'):
+                elif line.startswith('F'):
                     self.parseDataToFrame(line)
 
                 elif line.startswith("R"):
@@ -43,7 +43,7 @@ class ParseDataToClass:
                     break
 
             inFile.close()
-            return self.frames, self.CR, self.questionFrame
+            return self.frames, self.CR, self.questionFrame, self.relations
 
         #throw an exception and reopen the openInputFile method again
         except FileNotFoundError:
@@ -72,7 +72,7 @@ class ParseDataToClass:
 
         return self.CR
 
-    def parseDataToRelations(self,str):
+    def parseDataToCR(self, str):
         self.CR.append(str.rstrip('\n'))
 
 

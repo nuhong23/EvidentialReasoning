@@ -1,17 +1,17 @@
 Q: Question: Is the experimental result credible and reliable?: Very credible and reliable, Good credibility and reliability, Acceptable credibility and reliability, Not credible or reliable
-B1: ENVC: 0.2: Procedure: PM: 1: Effective, Ineffective
-B1: ENVC: 0.4: Blanks: BL: 2: No contamination, Contaminated
-B1: ENVC: 0.8: Wavelength: WL: 1:  TiO2-DNA bounded, Not bounded
-B1: ENVC: 0.7: Agarose Gel: AG: 2: Low quantity of ethanol, Medium quantity of ethanol, High quantity of ethanol
-B1: ENVC: 0.4: Extraction method: EM: 2: Good extraction method, Acceptable extraction method, Poor extraction method
-B1: ENVC: 0.7: DNA Volume: DV: 2: High DNA volume, Moderate DNA volume, Low DNA volume
-B1: ENVC: 0.5: Titanium exposure time: TE: 2:  Good titanium exposure time, Bad titanium exposure time
-B2: EEAP: 0.3: Environment: EN: 1: Very good environment, Good environment, Acceptable environment, Bad environment
-B2: EEAP: 0.8: Cleanliness: CL: 3: Very clean, Clean, Average cleanliness, Poor cleanliness
-B3: PMAT: 0.1: Accuracy & Precision: PA: 1: Accurate & Precise Equipment and Experimenter,  Acceptable accuracy & precision equipment and accurate  & precise experimenter, Bad accuracy & precision equipment and accurate  & precise experimenter, Accurate & Precise Equipment and acceptable accuracy and precision experimenter,  Acceptable accuracy & precision equipment and Acceptable accurate and precise experimenter,Bad accuracy & precision equipment and Acceptable accurate and precise experimenter, Accurate & Precise Equipment and Bad accuracy and precision experimenter, Acceptable accuracy & precision equipment and Bad accuracy and precision experimenter, Bad accuracy & precision equipment and Bad accuracy and precision experimenter
-B3: PMAT: 0.9: Calibration: CN: 1: 0-1% Good calibration, 2-3% Acceptable equipment calibration, >4% Poor equipment calibration
-B3: PMAT: 0.2: Condition: CO: 2: New equipment condition, Average equipment condition, Old equipment condition
-B3: PMAT: 0.6: Experience: EX: 2: Expert experience, Good experience, Acceptable experience, Poor experience
+F: ENVC: 0.2: Procedure: PM: 1: Effective, Ineffective
+F: ENVC: 0.4: Blanks: BL: 2: No contamination, Contaminated
+F: ENVC: 0.8: Wavelength: WL: 1:  TiO2-DNA bounded, Not bounded
+F: ENVC: 0.7: Agarose Gel: AG: 2: Low quantity of ethanol, Medium quantity of ethanol, High quantity of ethanol
+F: ENVC: 0.4: Extraction method: EM: 2: Good extraction method, Acceptable extraction method, Poor extraction method
+F: ENVC: 0.7: DNA Volume: DV: 2: High DNA volume, Moderate DNA volume, Low DNA volume
+F: ENVC: 0.5: Titanium exposure time: TE: 2:  Good titanium exposure time, Bad titanium exposure time
+F: EEAP: 0.3: Environment: EN: 1: Very good environment, Good environment, Acceptable environment, Bad environment
+F: EEAP: 0.8: Cleanliness: CL: 3: Very clean, Clean, Average cleanliness, Poor cleanliness
+F: PMAT: 0.1: Accuracy & Precision: PA: 1: Accurate & Precise Equipment and Experimenter,  Acceptable accuracy & precision equipment and accurate  & precise experimenter, Bad accuracy & precision equipment and accurate  & precise experimenter, Accurate & Precise Equipment and acceptable accuracy and precision experimenter,  Acceptable accuracy & precision equipment and Acceptable accurate and precise experimenter,Bad accuracy & precision equipment and Acceptable accurate and precise experimenter, Accurate & Precise Equipment and Bad accuracy and precision experimenter, Acceptable accuracy & precision equipment and Bad accuracy and precision experimenter, Bad accuracy & precision equipment and Bad accuracy and precision experimenter
+F: PMAT: 0.9: Calibration: CN: 1: 0-1% Good calibration, 2-3% Acceptable equipment calibration, >4% Poor equipment calibration
+F: PMAT: 0.2: Condition: CO: 2: New equipment condition, Average equipment condition, Old equipment condition
+F: PMAT: 0.6: Experience: EX: 2: Expert experience, Good experience, Acceptable experience, Poor experience
 R: EN: CL: {(EN1), (CL1,CL2,CL3)} ; {(EN2), (CL1, CL2, CL3)} ; {(EN3), (CL2, CL3, CL4)} ; {(EN4), (CL3,CL4)}
 R: PM: BL: {(PM1), (BL1, BL2)} ; {(PM2), (BL1, BL2)}
 R: BL: WL: {(BL1), (WL1)} ; {(BL2), (WL2)}
@@ -21,4 +21,4 @@ R: EM: DV: {(EM1), (DV1,DV2)} ; {(EM2), (DV2, DV3)} ; {(EM3), (DV2, DV3)}
 R: DV: TE: {(DV1), (TE1)} ; {(DV2), (TE1, TE2)} ; {(DV3), (TE2)}
 R: PA: CN: {(PA1), (CN1, CN2)} ; {(PA2), (CN1, CN2)} ; {(PA3), (CN2, CN3)} ; {(PA4), (CN1, CN2)} ; {(PA5), (CN1, CN2, CN3)} ; {(PA6), (CN2, CN3)} ; {(PA7), (CN2,CN3)}; {(PA8), (CN2, CN3)} ; {(PA9), (CN2, CN3)}
 R: PA: CO: {(PA1), (CO1, CO2, CO30)} ; {(PA2), (CO1, CO2, CO3)} ; {(PA3), (CO2, CO3)} ; {(PA4), (CO1, CO2, CO3)} ; {(PA5), (CO1, CO2, CO3)} ; {(PA6), (CO2, CO3)} ; {(PA7), (CO1, CO2, CO3)} ; {(PA8), (CO1, CO2, CO2)} ; {(PA9), (CO2, CO3)}
-R:PA: EX: {(PA1), (EX1, EX2, EX3)} ; {(PA2), (EX2, EX3)} ; {(PA3), (EX2, EX3)} ; {(PA4), (EX1, EX2, EX3)} ; {(PA5), (EX2, EX3)} ; {(PA6), (EX2, EX3)} ; {(PA7), (EX3, EX4)} ; {(PA8), (EX3, EX4)} ; {(PA9), (EX3, EX4)}
+R: PA: EX: {(PA1), (EX1, EX2, EX3)} ; {(PA2), (EX2, EX3)} ; {(PA3), (EX2, EX3)} ; {(PA4), (EX1, EX2, EX3)} ; {(PA5), (EX2, EX3)} ; {(PA6), (EX2, EX3)} ; {(PA7), (EX3, EX4)} ; {(PA8), (EX3, EX4)} ; {(PA9), (EX3, EX4)}
