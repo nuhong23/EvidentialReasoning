@@ -15,7 +15,7 @@ class ParseDataToClass:
 
         #open file, if path does not exist, print error message
         try:
-            dir_path = input("Enter the path to the Input.txt file:   ")
+            dir_path = raw_input("Enter the path to the Input.txt file:   ")
             inFile = open(dir_path, 'r')
 
             #parse the file by keywords: Question = Q, frame = B, and compatibility relations = CR
@@ -38,7 +38,7 @@ class ParseDataToClass:
                     print ("Question should use the abbreviation 'Q:' ")
                     print ("Frames should use the abbreviation 'B#:' where # is the sequential number starting from 1")
                     print ("Compatibility relations should use the abbreviation 'CR#:' where # is the sequential number starting from 1\n")
-                    print ("The error exist in line --->     " + line, end = '')
+                    print ("The error exist in line --->     " + line)
                     inFile.close()
                     break
 
@@ -46,7 +46,7 @@ class ParseDataToClass:
             return self.frames, self.CR, self.questionFrame, self.relations
 
         #throw an exception and reopen the openInputFile method again
-        except FileNotFoundError:
+        except IOError:
             print("The directory path to Input.txt file is invalid.\n")
             self.openInputFile()
 
