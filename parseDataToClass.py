@@ -66,12 +66,13 @@ class ParseDataToClass:
 
         return self.frames
 
-    #an array of compatibility relations (CR)
+    #an array of frame relationship
     def parseDataToRelations(self, str):
         self.relations.append(str.rstrip('\n'))
 
         return self.CR
 
+    #an array of compatibility relations (CR)
     def parseDataToCR(self, str):
         self.CR.append(str.rstrip('\n'))
 
