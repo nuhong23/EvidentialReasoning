@@ -19,8 +19,15 @@ class Analysis:
     def translate(self, frame1,frame2):
         pass
 
-    def fuse(self):
-        pass
-    
+    # Dempster's combination rule
+    def fuse(self, massA, massB):
+
+        def dependent():
+            return massA * massB
+
+        def independent():
+            k = massA * massB
+            return 1/(1-k)
+
     def interpret(self):
         pass
