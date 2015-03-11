@@ -5,6 +5,7 @@ class ParseDataToClass:
 
     frames = []
     CR = []
+    relations = []
     questionFrame = []
 
     def __init__(self):
@@ -27,9 +28,11 @@ class ParseDataToClass:
                 elif line.startswith('B'):
                     self.parseDataToFrame(line)
 
+                elif line.startswith("R"):
+                    self.parseDataToRelations(line)
+
                 elif line.startswith("CR"):
                     self.parseDataToCR(line)
-
                 else:
                     print ("Recheck your Input.txt file for consistency.\n")
                     print ("Question should use the abbreviation 'Q:' ")
@@ -44,7 +47,7 @@ class ParseDataToClass:
 
         #throw an exception and reopen the openInputFile method again
         except FileNotFoundError:
-            print("The directory path to Input.txt file is not valid.\n")
+            print("The directory path to Input.txt file is invalid.\n")
             self.openInputFile()
 
     # packages two arrays into a dictionary
@@ -54,7 +57,6 @@ class ParseDataToClass:
         question = [splitter[1], splitter[2]]
         answers = [splitter[3:len(splitter)]]
         self.questionFrame = {splitter[0]:[question,answers]}
-        print(self.questionFrame)
 
         return self.questionFrame
 
@@ -65,12 +67,13 @@ class ParseDataToClass:
         return self.frames
 
     #an array of compatibility relations (CR)
-    def parseDataToCR(self, str):
-        self.CR.append(str.rstrip('\n'))
+    def parseDataToRelations(self, str):
+        self.relations.append(str.rstrip('\n'))
 
         return self.CR
 
-
+    def parseDataToRelations(self,str):
+        self.CR.append(str.rstrip('\n'))
 
 
     if __name__ == "__main__":

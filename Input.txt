@@ -12,13 +12,13 @@ B3: PMAT: 0.1: Accuracy & Precision: PA: 1: Accurate & Precise Equipment and Exp
 B3: PMAT: 0.9: Calibration: CN: 1: 0-1% Good calibration, 2-3% Acceptable equipment calibration, >4% Poor equipment calibration
 B3: PMAT: 0.2: Condition: CO: 2: New equipment condition, Average equipment condition, Old equipment condition
 B3: PMAT: 0.6: Experience: EX: 2: Expert experience, Good experience, Acceptable experience, Poor experience
-CR1: EN: CL: {(EN1), (CL1,CL2,CL3)} ; {(EN2), (CL1, CL2, CL3)} ; {(EN3), (CL2, CL3, CL4)} ; {(EN4), (CL3,CL4)}
-CR2: PM: BL: {(PM1), (BL1, BL2)} ; {(PM2), (BL1, BL2)}
-CR3: BL: WL: {(BL1), (WL1)} ; {(BL2), (WL2)}
-CR4: PM: AG: {(PM1), (AG2, AG3)} ; {(PM2), (AG1, AG2)}
-CR5: PM: EM: {(PM1), (EM1, EM2)} ; {(PM2), (EM2, EM3)}
-CR6: EM: DV: {(EM1), (DV1,DV2)} ; {(EM2), (DV2, DV3)} ; {(EM3), (DV2, DV3)}
-CR7: DV: TE: {(DV1), (TE1)} ; {(DV2), (TE1, TE2)} ; {(DV3), (TE2)}
-CR8: PA: CN: {(PA1), (CN1, CN2)} ; {(PA2), (CN1, CN2)} ; {(PA3), (CN2, CN3)} ; {(PA4), (CN1, CN2)} ; {(PA5), (CN1, CN2, CN3)} ; {(PA6), (CN2, CN3)} ; {(PA7), (CN2,CN3)}; {(PA8), (CN2, CN3)} ; {(PA9), (CN2, CN3)}
-CR9: PA: CO: {(PA1), (CO1, CO2, CO30)} ; {(PA2), (CO1, CO2, CO3)} ; {(PA3), (CO2, CO3)} ; {(PA4), (CO1, CO2, CO3)} ; {(PA5), (CO1, CO2, CO3)} ; {(PA6), (CO2, CO3)} ; {(PA7), (CO1, CO2, CO3)} ; {(PA8), (CO1, CO2, CO2)} ; {(PA9), (CO2, CO3)}
-CR10:PA: EX: {(PA1), (EX1, EX2, EX3)} ; {(PA2), (EX2, EX3)} ; {(PA3), (EX2, EX3)} ; {(PA4), (EX1, EX2, EX3)} ; {(PA5), (EX2, EX3)} ; {(PA6), (EX2, EX3)} ; {(PA7), (EX3, EX4)} ; {(PA8), (EX3, EX4)} ; {(PA9), (EX3, EX4)}
+R: EN: CL: {(EN1), (CL1,CL2,CL3)} ; {(EN2), (CL1, CL2, CL3)} ; {(EN3), (CL2, CL3, CL4)} ; {(EN4), (CL3,CL4)}
+R: PM: BL: {(PM1), (BL1, BL2)} ; {(PM2), (BL1, BL2)}
+R: BL: WL: {(BL1), (WL1)} ; {(BL2), (WL2)}
+R: PM: AG: {(PM1), (AG2, AG3)} ; {(PM2), (AG1, AG2)}
+R: PM: EM: {(PM1), (EM1, EM2)} ; {(PM2), (EM2, EM3)}
+R: EM: DV: {(EM1), (DV1,DV2)} ; {(EM2), (DV2, DV3)} ; {(EM3), (DV2, DV3)}
+R: DV: TE: {(DV1), (TE1)} ; {(DV2), (TE1, TE2)} ; {(DV3), (TE2)}
+R: PA: CN: {(PA1), (CN1, CN2)} ; {(PA2), (CN1, CN2)} ; {(PA3), (CN2, CN3)} ; {(PA4), (CN1, CN2)} ; {(PA5), (CN1, CN2, CN3)} ; {(PA6), (CN2, CN3)} ; {(PA7), (CN2,CN3)}; {(PA8), (CN2, CN3)} ; {(PA9), (CN2, CN3)}
+R: PA: CO: {(PA1), (CO1, CO2, CO30)} ; {(PA2), (CO1, CO2, CO3)} ; {(PA3), (CO2, CO3)} ; {(PA4), (CO1, CO2, CO3)} ; {(PA5), (CO1, CO2, CO3)} ; {(PA6), (CO2, CO3)} ; {(PA7), (CO1, CO2, CO3)} ; {(PA8), (CO1, CO2, CO2)} ; {(PA9), (CO2, CO3)}
+R:PA: EX: {(PA1), (EX1, EX2, EX3)} ; {(PA2), (EX2, EX3)} ; {(PA3), (EX2, EX3)} ; {(PA4), (EX1, EX2, EX3)} ; {(PA5), (EX2, EX3)} ; {(PA6), (EX2, EX3)} ; {(PA7), (EX3, EX4)} ; {(PA8), (EX3, EX4)} ; {(PA9), (EX3, EX4)}
