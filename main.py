@@ -17,8 +17,7 @@ def main():
 
     frames = Frames()
     frames.organize_frames(parse.frames, parse.relations)
-    print(frames.frameInfo)
-    print(frames.propositions)
+
 
 
 

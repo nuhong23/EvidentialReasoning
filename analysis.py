@@ -16,8 +16,9 @@ class Analysis:
             print("Method can only multiply numbers and not string values.")
 
 
-    def translate(self, frame1,frame2):
+    def translate(self, parentFrame, childFrame, frameInfo, propositions):
         pass
+
 
     # Dempster's combination rule
     def fuse(self, massA, massB):

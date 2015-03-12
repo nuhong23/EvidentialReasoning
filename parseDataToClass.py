@@ -77,6 +77,8 @@ class ParseDataToClass:
         self.CR.append(str.rstrip('\n'))
 
 
+
+
     if __name__ == "__main__":
         openInputFile()
 
