@@ -32,9 +32,9 @@ class ParseDataToClass:
                     self.parseDataToCR(line)
                 else:
                     print ("Recheck your Input.txt file for consistency.\n")
-                    print ("Question should use the abbreviation 'Q:' ")
-                    print ("Frames should use the abbreviation 'B#:' where # is the sequential number starting from 1")
-                    print ("Compatibility relations should use the abbreviation 'CR#:' where # is the sequential number starting from 1\n")
+                    print ("Question should use the abbreviation 'Question:' ")
+                    print ("Frames should be named ""Frames"":")
+                    print ("Compatibility relations should use the abbreviation 'CR:' \n")
                     print ("The error exist in line --->     " + line)
                     inFile.close()
                     break
@@ -51,6 +51,7 @@ class ParseDataToClass:
     def parseDataToQuestionFrame(self, str):
 
         splitter = str.split(':',2)
+        question = splitter
         answers = [splitter[2:len(splitter)]]
         self.questionFrame = {splitter[0]:[answers]}
 
