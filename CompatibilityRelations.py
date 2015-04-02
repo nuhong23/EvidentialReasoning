@@ -1,17 +1,23 @@
 
+class CompatibilityRelations:
 
-class CR:
+    compatibilityRelations = []
+    compatibilityInfo = []
+    relatedTo = []
 
     def __init__(self):
         pass
 
-    def connection(self, crossProductFrames, questions):
+    def organize_relations(self, CR):
 
-        '''1) use crossProductFrame and connect to questions
-           2) prompt users
+        for elements in CR:
+            splitter = elements.split(':')
+            key = splitter[0]
+            self.compatibilityInfo.append(splitter[1:3])
+            self.relatedTo.append(splitter[3])
 
-           3)
-        '''
+        print(self.compatibilityInfo)
+        print(self.relatedTo)
 
 
 
