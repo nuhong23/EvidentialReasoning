@@ -14,7 +14,7 @@ class ParseDataToClass:
 
         #open file, if path does not exist, print error message
         try:
-            dir_path = raw_input("Enter the path to the Input.txt file:   ")
+            dir_path = input("Enter the path to the Input.txt file:   ")
             inFile = open(dir_path, 'r')
 
             #parse the file by keywords: Question, frame, and compatibility relations = CR
