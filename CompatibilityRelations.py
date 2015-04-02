@@ -15,9 +15,8 @@ class CompatibilityRelations:
             key = splitter[0]
             self.compatibilityInfo.append(splitter[1:3])
             self.relatedTo.append(splitter[3])
-
-        print(self.compatibilityInfo)
-        print(self.relatedTo)
+            
+        return self.compatibilityInfo, self.relatedTo
 
 
 
