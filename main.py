@@ -15,7 +15,10 @@ def main():
 
 
     frames = Frames()
-    frames.organize_frames(parse.frames, parse.CR)
+    frames.organize_frames(parse.frames)
+    print(frames.frameInfo)
+    print(frames.propositions)
+
 
 
 

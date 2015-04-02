@@ -18,22 +18,16 @@ class Frames:
     def __init__(self):
         pass
 
-    def organize_frames(self,frames,CR):
+    def organize_frames(self,frames):
 
         for elements in frames:
-            splitter = elements.split(":",5)
+            splitter = elements.split(":")
 
             self.frameInfo.append(splitter[1:5])
             self.propositions.append(splitter[5].split('/'))
 
-        self.get_crossProductFrames(self.frameInfo, self.propositions)
         return self.frameInfo, self.propositions
 
-
-    def get_crossProductFrames(self, frameInfo, propositions):
-
-        print(frameInfo)
-        print(propositions)
 
 
 
