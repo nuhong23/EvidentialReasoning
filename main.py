@@ -1,7 +1,7 @@
 
 from parseDataToClass import *
 from frame import *
-from compatibilityRelations import *
+from compatibilityRelation import *
 
 def main():
 
