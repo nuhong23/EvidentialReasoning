@@ -7,7 +7,7 @@ def main():
 
     parse = ParseDataToClass()
     parse.openInputFile()
-
+    print("Parsed Information for frames, CR, and Question")
     print (parse.frames)
     print(parse.CR)
     print(parse.questionFrame)
@@ -16,12 +16,19 @@ def main():
 
     frames = Frames()
     frames.organize_frames(parse.frames)
+    print("Frame information and its propositions organized into an array")
     print(frames.frameInfo)
     print(frames.propositions)
+    print('\n')
 
     relations = CompatibilityRelations()
     relations.organize_relations(parse.CR)
-
+    print("Compatibility relations")
+    print(relations.compatibilityInfo)
+    print(relations.relatedTo)
+    
+    #for elements in
+    #discountPrompt = raw_input("")
 
 
 
