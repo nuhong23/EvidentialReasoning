@@ -11,12 +11,11 @@ def main():
     print (parse.frames)
     print(parse.CR)
     print(parse.questionFrame)
-    print(parse.relations)
     print('\n')
 
 
     frames = Frames()
-    frames.organize_frames(parse.frames, parse.relations)
+    frames.organize_frames(parse.frames, parse.CR)
 
 
 
@@ -25,16 +24,7 @@ def main():
 
 
 
-
-
-
-
-
-
-
 if __name__ == "__main__":
-    print("Entered main function")
     main()
-else:
-    print("Did not enter main function.")
+
 

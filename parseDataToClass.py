@@ -5,7 +5,6 @@ class ParseDataToClass:
 
     frames = []
     CR = []
-    relations = []
     questionFrame = []
 
     def __init__(self):
@@ -18,7 +17,7 @@ class ParseDataToClass:
             dir_path = raw_input("Enter the path to the Input.txt file:   ")
             inFile = open(dir_path, 'r')
 
-            #parse the file by keywords: Question = Q, frame = B, and compatibility relations = CR
+            #parse the file by keywords: Question, frame, and compatibility relations = CR
             for line in inFile:
 
                 #send strings to methods by keywords
@@ -40,7 +39,7 @@ class ParseDataToClass:
                     break
 
             inFile.close()
-            return self.frames, self.CR, self.questionFrame, self.relations
+            return self.frames, self.CR, self.questionFrame
 
         #throw an exception and reopen the openInputFile method again
         except IOError:
@@ -49,11 +48,11 @@ class ParseDataToClass:
 
     # packages two arrays into a dictionary
     def parseDataToQuestionFrame(self, str):
-
         splitter = str.split(':',2)
-        question = splitter
+        key = splitter[0]
+        question = splitter[1]
         answers = [splitter[2:len(splitter)]]
-        self.questionFrame = {splitter[0]:[answers]}
+        self.questionFrame = {key:[question,answers]}
 
         return self.questionFrame
 
@@ -67,11 +66,12 @@ class ParseDataToClass:
     def parseDataToCR(self, str):
         self.CR.append(str.rstrip('\n'))
 
+        return self.CR
 
 
 
-    if __name__ == "__main__":
-        openInputFile()
+
+
 
 
 
