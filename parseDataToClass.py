@@ -22,14 +22,11 @@ class ParseDataToClass:
             for line in inFile:
 
                 #send strings to methods by keywords
-                if line.startswith('Q'):
+                if line.startswith('Question'):
                     self.parseDataToQuestionFrame(line)
 
-                elif line.startswith('F'):
+                elif line.startswith('Frame'):
                     self.parseDataToFrame(line)
-
-                elif line.startswith("R"):
-                    self.parseDataToRelations(line)
 
                 elif line.startswith("CR"):
                     self.parseDataToCR(line)
@@ -53,10 +50,9 @@ class ParseDataToClass:
     # packages two arrays into a dictionary
     def parseDataToQuestionFrame(self, str):
 
-        splitter = str.split(':',3)
-        question = [splitter[1], splitter[2]]
-        answers = [splitter[3:len(splitter)]]
-        self.questionFrame = {splitter[0]:[question,answers]}
+        splitter = str.split(':',2)
+        answers = [splitter[2:len(splitter)]]
+        self.questionFrame = {splitter[0]:[answers]}
 
         return self.questionFrame
 
@@ -65,12 +61,6 @@ class ParseDataToClass:
         self.frames.append(str.rstrip('\n'))
 
         return self.frames
-
-    #an array of frame relationship
-    def parseDataToRelations(self, str):
-        self.relations.append(str.rstrip('\n'))
-
-        return self.CR
 
     #an array of compatibility relations (CR)
     def parseDataToCR(self, str):
