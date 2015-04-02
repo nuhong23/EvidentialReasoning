@@ -27,8 +27,9 @@ def main():
     print(relations.compatibilityInfo)
     print(relations.relatedTo)
 
-    #for elements in
-    #discountPrompt = raw_input("")
+    for elements in frames.frameInfo[0]:
+
+        discountPrompt = raw_input("Is there a discounting operations needed for: " + elements + "?\n")
 
 
 
