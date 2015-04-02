@@ -1,7 +1,7 @@
 
 from parseDataToClass import *
 from frame import *
-from  compatibilityRelations import *
+from compatibilityRelations import *
 
 def main():
 
@@ -19,11 +19,12 @@ def main():
     print(frames.frameInfo)
     print(frames.propositions)
 
+    relations = CompatibilityRelations()
+    relations.organize_relations(parse.CR)
 
 
 
 
-    #cr = CR(frames.crossProductFrames, parse.questionFramestion)
 
 
 
