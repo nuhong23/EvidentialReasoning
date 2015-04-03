@@ -27,16 +27,6 @@ def main():
     print(relations.compatibilityInfo)
     print(relations.relatedTo)
 
-    for elements in frames.frameInfo:
-            try:
-                discountPrompt = input("Is discounting needed for: " + elements[0] + "?\n");
-
-                if discountPrompt.upper() == "YES":
-                    alpha = input("Enter the alpha value between 0 and 1")
-                    print(alpha)
-
-            except IOError:
-                print("The answer must be 'YES' or 'NO'")
 
 
 

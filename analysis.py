@@ -1,6 +1,8 @@
 
 class Analysis:
 
+    commonCrossProductFrame = []
+
     def __init__(self):
         pass
 
@@ -13,19 +15,13 @@ class Analysis:
             print("Alpha and mass must be a numerical value")
             self.discount()
 
-    def translate(self,FOD1, FOD2, frameInfo, propositions):
+    def translate(self,FOD1, FOD2):
         pass
 
 
     # Dempster's combination rule
-    def fuse(self,str, massA, massB):
-
-        if str.startswith("dependent"):
-            return massA * massB
-
-        if str.startswith("independent"):
-            k = massA * massB
-            return 1/(1-k)
+    def fuse(self,translatedFrame):
+        pass
 
     def interpret(self):
         pass

@@ -23,8 +23,8 @@ class Frames:
         for elements in frames:
             splitter = elements.split(":")
 
-            self.frameInfo.append(splitter[1:5])
-            self.propositions.append(splitter[5].split('/'))
+            self.frameInfo.append(splitter[1:6])
+            self.propositions.append(splitter[6].split('/'))
 
         return self.frameInfo, self.propositions
 
