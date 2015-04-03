@@ -15,7 +15,7 @@ class Analysis:
             print("Alpha and mass must be a numerical value")
             self.discount()
 
-    def translate(self,FOD1, FOD2):
+    def translate(self,FOD1,FOD2):
         pass
 
 
