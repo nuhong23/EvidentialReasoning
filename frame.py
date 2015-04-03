@@ -14,6 +14,8 @@ class Frames:
 
     propositions = []
     frameInfo = []
+    frameName = []
+    FODpropositions = []
 
     def __init__(self):
         pass
@@ -29,6 +31,16 @@ class Frames:
         return self.frameInfo, self.propositions
 
 
+    def crossProductFrames(self,FOD):
+
+        for elements in FOD:
+            splitter = elements.split(":")
+            self.frameName.append(splitter[1])
+            self.framePropositions.append(splitter[2])
+
+        print(self.frameName)
+        print(self.framePropositions)
+        print('\n')
 
 
 

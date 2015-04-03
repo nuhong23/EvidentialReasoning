@@ -1,7 +1,7 @@
 
 class Analysis:
 
-    commonCrossProductFrame = []
+    translatedFrame = []
 
     def __init__(self):
         pass

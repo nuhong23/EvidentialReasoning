@@ -6,6 +6,7 @@ class ParseDataToClass:
     frames = []
     CR = []
     questionFrame = []
+    FOD = []
 
     def __init__(self):
         pass
@@ -29,6 +30,10 @@ class ParseDataToClass:
 
                 elif line.startswith("CR"):
                     self.parseDataToCR(line)
+
+                elif line.startswith("FOD"):
+                    self.parseDataToFOD(line)
+
                 else:
                     print ("Recheck your Input.txt file for consistency.\n")
                     print ("Question should use the abbreviation 'Question:' ")
@@ -68,7 +73,8 @@ class ParseDataToClass:
 
         return self.CR
 
-
+    def parseDataToFOD(self,str):
+        self.FOD.append(str.rstrip('\n'))
 
 
 
