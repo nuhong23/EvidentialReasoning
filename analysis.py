@@ -15,8 +15,15 @@ class Analysis:
             print("Alpha and mass must be a numerical value")
             self.discount()
 
-    def translate(self,FOD1,FOD2):
-        pass
+    def translate(self,Frame1,relations1,Frame2, relations2):
+        print("printing in translating\n")
+        print(Frame1)
+        print(relations1)
+        print(Frame2)
+        print(relations2)
+        #splitter = relations1.split(',')
+        #print(splitter)
+
 
 
     # Dempster's combination rule

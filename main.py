@@ -19,7 +19,7 @@ def main():
     frames = Frames()
     frames.organize_frames(parse.frames)
     frames.crossProductFrames(parse.FOD)
-    print("Frame information and its propositions organized into an array\n")
+    print("\nFrame information and its propositions organized into an array\n")
     print(frames.frameInfo)
     print(frames.propositions)
     print('\n')
@@ -29,6 +29,7 @@ def main():
     print("Compatibility relations\n")
     print(relations.compatibilityInfo)
     print(relations.relatedTo)
+
 
 
 
