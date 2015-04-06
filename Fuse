@@ -1,0 +1,38 @@
+import numpy as np
+
+# a = np.array([1,0,0])
+#b = np.array([0,1,0])
+#print np.cross(a,b)
+massA = {('ad', 'ae', 'af'): 0.2, ('cd', 'ce', 'cf'): 0.3, 'theta': 0.5}
+
+massB = {('ad', 'bd', 'cd', 'ae', 'be', 'ce'): 0.4, ('af', 'bf', 'cf'): 0.3, 'theta': 0.3}
+
+def fuse(self, massA, massB):
+    i = 0
+	sum1 = []
+	for keys in massA:
+		k = 0
+		print (keys, massB.keys()[k])
+		if keys == "theta" or massB.keys()[k] == "theta":
+			result = massA.values()[i] * massB.values()[k]
+			print result
+			sum1.append(result)
+		i = i + 1
+	i = 0
+	for keys in massA:
+		k = 1
+		print (keys, massB.keys()[k])
+		if keys == "theta" or massB.keys()[k] == "theta":
+			result = massA.values()[i] * massB.values()[k]
+			print result
+			sum1.append(result)
+		elif any(keys[i] in massB.keys()[k] for keys in massB.keys()):
+			result1 = massA.values()[i] * massB.values()[k]
+			print result1
+			sum1.append(result1)
+		i = i + 1
+	print sum1
+	sum2 = sum(sum1)
+	print sum2
+
+fuse(massA, massB)
