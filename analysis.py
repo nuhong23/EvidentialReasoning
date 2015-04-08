@@ -1,36 +1,67 @@
-import numpy as np
 
-# a = np.array([1,0,0])
-#b = np.array([0,1,0])
-#print np.cross(a,b)
 
 class Analysis:
+
+    translatedFrame = {}
+    newFrame = []
+    newRelations = []
 
     def __init__(self):
         pass
 
-    def discount(self, alpha, mass):
+
+
+    def discount(self, mass):
+        alpha = input("What is the alpha number for adjustment? :\t")
+
         try:
-            return alpha * mass
+            alpha = float(alpha)
+            if alpha >= 1 or alpha <=0:
+                self.discount(mass)
+                print("The number must be between 0 and 1.")
+            else:
+                self.discounted = float(alpha) * float(mass)
+                return self.discounted
 
-        except ArithmeticError:
-            print("Method can only multiply numbers and not string values.")
-            print("Alpha and mass must be a numerical value")
-            self.discount()
+        except (TypeError,ValueError):
+            print("Must be a number and not a string.")
+            self.discount(mass)
 
-    def translate(self, parentFrame, childFrame, frameInfo, propositions):
-        pass
+
+
+    def translate(self,frame1, relations1, frame2, relations2):
+        print("printing in translating\n")
+
+        value = []
+        key = frame1[0] + "x" + frame2[0]
+
+        try:
+            splitter1 = relations1.split(',')
+            splitter2 = relations2.split(',')
+
+            for i in splitter1:
+                for j in splitter2:
+                    string = i + ' v ' + j
+                    value.append(string)
+                    self.newRelations.append(string)
+
+        except AttributeError:
+            splitter2 = relations2.split(',')
+
+            for i in relations1:
+                for j in splitter2:
+                    string = i + ' v ' + j
+                    value.append(string)
+
+        self.newFrame.append(key)
+        self.translatedFrame[key] = value
+        print(self.translatedFrame)
+        return self.translatedFrame, self.newFrame, self.newRelations
 
 
     # Dempster's combination rule
-    def fuse(self,str, massA, massB):
-
-        if str.startswith("dependent"):
-            return massA * massB
-
-        if str.startswith("independent"):
-            k = massA * massB
-            return 1/(1-k)
+    def fuse(self,translatedFrame):
+        pass
 
     def interpret(self):
         pass

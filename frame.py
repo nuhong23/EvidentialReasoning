@@ -1,4 +1,5 @@
 from analysis import *
+from signal import signal, alarm, SIGALRM
 
 # Author Tami Hong Le
 # 3/7/2015
@@ -14,21 +15,87 @@ class Frames:
 
     propositions = []
     frameInfo = []
+    frameName = []
+    relations = []
+    frames = {}
 
     def __init__(self):
         pass
 
+
+
+    #orgaizes the frames into lists
     def organize_frames(self,frames):
 
         for elements in frames:
             splitter = elements.split(":")
 
-            self.frameInfo.append(splitter[1:5])
+            self.frameInfo.append(splitter[1:4])
             self.propositions.append(splitter[5].split('/'))
 
         return self.frameInfo, self.propositions
 
 
 
+    #crossing the frames to get a common cross product frame
+    def crossProductFrames(self,FOD):
+        print("\nEntering the cross product frame: \n")
+        print(FOD)
+        i = 0
 
+        #iterates through the FOD list and continues to organize it in preparation for
+        #frame translating
+        for elements in FOD:
+            splitter = elements.split(":")
+            mass = splitter[3].strip()
+            float(mass)
+            discountOption = splitter[2].upper().strip()
+
+            #accounts for the discount operation before crossing the frames
+            if discountOption == 'YES':
+                print("Entering discount")
+                discounts = Analysis()
+                discounts.discount(mass)
+                splitter[3] = discounts.discounted
+
+
+                print(discounts.discounted)
+
+            self.frameName.append(splitter[1:4])
+            self.relations.append(splitter[4])
+
+            name = splitter[1]
+            self.frames[name] = self.relations[i]
+            i = i + 1
+
+        print(self.frameName)
+        print(self.frames)
+
+        cross = Analysis()
+        x = 0
+
+        #keeps invoking the translate operation until it is out of range
+        while range(0,len(self.frameName)+ 2):
+            try:
+                if len(self.frameName) != 1:
+                    cross.translate(self.frameName[x],self.relations[x],self.frameName[x + 1], self.relations[x + 1])
+
+                    self.frameName.remove(self.frameName[x])
+                    self.frameName.remove(self.frameName[x])
+                    self.frameName.insert(x, cross.newFrame)
+
+                    self.relations.remove(self.relations[x])
+                    self.relations.remove(self.relations[x])
+                    self.relations.insert(x, cross.newRelations)
+
+                    newFrame = cross.newFrame
+                    self.frames[newFrame] = cross.newRelations
+
+            except (IndexError,TypeError):
+                continue
+
+        #check to see if any of the frames have matching information
+
+        print(self.frames)
+        return self.frames
 

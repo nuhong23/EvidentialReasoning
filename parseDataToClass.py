@@ -6,6 +6,7 @@ class ParseDataToClass:
     frames = []
     CR = []
     questionFrame = []
+    FOD = []
 
     def __init__(self):
         pass
@@ -14,7 +15,7 @@ class ParseDataToClass:
 
         #open file, if path does not exist, print error message
         try:
-            dir_path = raw_input("Enter the path to the Input.txt file:   ")
+            dir_path = input("Enter the path to the Input.txt file:\t")
             inFile = open(dir_path, 'r')
 
             #parse the file by keywords: Question, frame, and compatibility relations = CR
@@ -29,6 +30,10 @@ class ParseDataToClass:
 
                 elif line.startswith("CR"):
                     self.parseDataToCR(line)
+
+                elif line.startswith("FOD"):
+                    self.parseDataToFOD(line)
+
                 else:
                     print ("Recheck your Input.txt file for consistency.\n")
                     print ("Question should use the abbreviation 'Question:' ")
@@ -58,17 +63,19 @@ class ParseDataToClass:
 
     # an array of frames
     def parseDataToFrame(self, str):
-        self.frames.append(str.rstrip('\n'))
+        self.frames.append(str.rstrip('\n').strip())
 
         return self.frames
 
     #an array of compatibility relations (CR)
     def parseDataToCR(self, str):
-        self.CR.append(str.rstrip('\n'))
+        self.CR.append(str.rstrip('\n').strip())
 
         return self.CR
 
-
+    def parseDataToFOD(self,str):
+        self.FOD.append(str.rstrip('\n').strip())
+        return self.FOD
 
 
 
