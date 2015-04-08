@@ -38,7 +38,7 @@ class Frames:
 
 
     #crossing the frames to get a common cross product frame
-    def crossProductFrames(self,FOD):
+    def crossProductFrames(self, FOD, framesInfo):
         print("\nEntering the cross product frame: \n")
         print(FOD)
         i = 0
@@ -47,22 +47,23 @@ class Frames:
         #frame translating
         for elements in FOD:
             splitter = elements.split(":")
-            mass = splitter[3].strip()
+            alpha = splitter[3].strip()
+            float(alpha)
+            mass = splitter[4].strip()
             float(mass)
+
             discountOption = splitter[2].upper().strip()
 
             #accounts for the discount operation before crossing the frames
             if discountOption == 'YES':
                 print("Entering discount")
                 discounts = Analysis()
-                discounts.discount(mass)
+                discounts.discount(alpha, mass)
                 splitter[3] = discounts.discounted
-
-
                 print(discounts.discounted)
 
-            self.frameName.append(splitter[1:4])
-            self.relations.append(splitter[4])
+            self.frameName.append(splitter[1:6])
+            self.relations.append(splitter[6])
 
             name = splitter[1]
             self.frames[name] = self.relations[i]
@@ -77,7 +78,7 @@ class Frames:
         #keeps invoking the translate operation until it is out of range
         while range(0,len(self.frameName)+ 2):
             try:
-                if len(self.frameName) != 1:
+                if len(self.frameName) != 0:
                     cross.translate(self.frameName[x],self.relations[x],self.frameName[x + 1], self.relations[x + 1])
 
                     self.frameName.remove(self.frameName[x])
@@ -95,6 +96,9 @@ class Frames:
                 continue
 
         #check to see if any of the frames have matching information
+        for x in self.frameInfo:
+            print("frame info")
+            print(x)
 
         print(self.frames)
         return self.frames

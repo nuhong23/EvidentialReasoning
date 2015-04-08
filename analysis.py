@@ -11,13 +11,11 @@ class Analysis:
 
 
 
-    def discount(self, mass):
-        alpha = input("What is the alpha number for adjustment? :\t")
-
+    def discount(self, alpha, mass):
         try:
             alpha = float(alpha)
-            if alpha >= 1 or alpha <=0:
-                self.discount(mass)
+            if alpha >= 1 or alpha <= 0:
+                self.discount(alpha, mass)
                 print("The number must be between 0 and 1.")
             else:
                 self.discounted = float(alpha) * float(mass)
@@ -25,7 +23,7 @@ class Analysis:
 
         except (TypeError,ValueError):
             print("Must be a number and not a string.")
-            self.discount(mass)
+            self.discount(alpha, mass)
 
 
 

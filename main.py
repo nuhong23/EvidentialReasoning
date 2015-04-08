@@ -18,12 +18,13 @@ def main():
 
     frames = Frames()
     frames.organize_frames(parse.frames)
-    frames.crossProductFrames(parse.FOD)
+    frames.crossProductFrames(parse.FOD, frames.frameInfo)
 
     print("\nFrame information and its propositions organized into an array\n")
     print(frames.frameInfo)
     print(frames.propositions)
     print('\n\n')
+
 '''
     relations = CompatibilityRelations()
     relations.organize_relations(parse.CR)
