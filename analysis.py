@@ -3,19 +3,18 @@
 class Analysis:
 
     translatedFrame = {}
-    discounted = 0
 
     def __init__(self):
         pass
 
     def discount(self, mass):
         alpha = raw_input("What is the alpha number for adjustment? ")
-        float(alpha)
+        alpha = float(alpha)
 
         try:
-            discounted = alpha * mass
-            return discounted
-        except TypeError,ValueError:
+            self.discounted = float(alpha) * float(mass)
+            return self.discounted
+        except TypeError:
             print("Error")
 
     def translate(self,frame1,relations1,frame2, relations2):
