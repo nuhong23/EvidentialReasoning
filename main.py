@@ -13,7 +13,7 @@ def main():
     print (parse.frames)
     print(parse.CR)
     print(parse.FOD)
-    print('\n')
+    print('\n\n')
 
 
     frames = Frames()
@@ -22,7 +22,7 @@ def main():
     print("\nFrame information and its propositions organized into an array\n")
     print(frames.frameInfo)
     print(frames.propositions)
-    print('\n')
+    print('\n\n')
 
     relations = CompatibilityRelations()
     relations.organize_relations(parse.CR)
