@@ -30,6 +30,7 @@ def fuse(massA, massB):
 
 
 
+
 fuse(massA, massB)
 
 
