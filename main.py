@@ -8,6 +8,7 @@ def main():
 
     parse = ParseDataToClass()
     parse.openInputFile()
+
     print("Parsed Information for frames, CR, Question AND FOD \n")
     print(parse.questionFrame)
     print (parse.frames)
@@ -15,21 +16,21 @@ def main():
     print(parse.FOD)
     print('\n\n')
 
-
     frames = Frames()
     frames.organize_frames(parse.frames)
     frames.crossProductFrames(parse.FOD)
+
     print("\nFrame information and its propositions organized into an array\n")
     print(frames.frameInfo)
     print(frames.propositions)
     print('\n\n')
-
+'''
     relations = CompatibilityRelations()
     relations.organize_relations(parse.CR)
     print("Compatibility relations\n")
     print(relations.compatibilityInfo)
     print(relations.relatedTo)
-
+'''
 
 
 

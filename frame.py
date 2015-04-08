@@ -19,7 +19,6 @@ class Frames:
     relations = []
     frames = {}
 
-
     def __init__(self):
         pass
 
@@ -69,25 +68,34 @@ class Frames:
             self.frames[name] = self.relations[i]
             i = i + 1
 
-        countFOD = len(self.frames)
-        print(countFOD)
         print(self.frameName)
         print(self.frames)
 
         cross = Analysis()
         x = 0
 
-        while x < countFOD:
+        #keeps invoking the translate operation until it is out of range
+        while range(0,len(self.frameName)+ 2):
             try:
-                cross.translate(self.frames)
-                x = x + 2
+                if len(self.frameName) != 1:
+                    cross.translate(self.frameName[x],self.relations[x],self.frameName[x + 1], self.relations[x + 1])
 
-            except:
-                break
+                    self.frameName.remove(self.frameName[x])
+                    self.frameName.remove(self.frameName[x])
+                    self.frameName.insert(x, cross.newFrame)
 
+                    self.relations.remove(self.relations[x])
+                    self.relations.remove(self.relations[x])
+                    self.relations.insert(x, cross.newRelations)
 
+                    newFrame = cross.newFrame
+                    self.frames[newFrame] = cross.newRelations
 
+            except (IndexError,TypeError):
+                continue
 
+        #check to see if any of the frames have matching information
 
-
+        print(self.frames)
+        return self.frames
 
