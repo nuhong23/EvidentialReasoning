@@ -1,25 +1,49 @@
 
+
 class Analysis:
 
-    translatedFrame = []
+    translatedFrame = {}
+    discounted = 0
 
     def __init__(self):
         pass
 
-    def discount(self, alpha, mass):
+    def discount(self, mass):
+        alpha = raw_input("What is the alpha number for adjustment? ")
+        float(alpha)
+
         try:
-            return alpha * mass
+            discounted = alpha * mass
+            return discounted
+        except TypeError,ValueError:
+            print("Error")
 
-        except ArithmeticError:
-            print("Method can only multiply numbers and not string values.")
-            print("Alpha and mass must be a numerical value")
-            self.discount()
-
-    def translate(self,Frame1,relations1,Frame2, relations2):
+    def translate(self,frame1,relations1,frame2, relations2):
         print("printing in translating\n")
-        print(Frame1)
+        splitter1 = relations1.split(',')
+        splitter2 = relations2.split(',')
+
+        product = []
+
+        for i in splitter1:
+            for j in splitter2:
+                string = i + ',' + j
+                product.append(string)
+
+        translatedFrame = {(frame1[0] + 'x' + frame2[0]): product}
+        print(translatedFrame)
+
+        return translatedFrame
+
+        #if frame1[1].upper() == 'YES':
+            #discount(frame1[2],)
+
+
+
+
+        print(frame1)
         print(relations1)
-        print(Frame2)
+        print(frame2)
         print(relations2)
         #splitter = relations1.split(',')
         #print(splitter)

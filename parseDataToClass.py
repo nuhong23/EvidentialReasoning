@@ -15,7 +15,7 @@ class ParseDataToClass:
 
         #open file, if path does not exist, print error message
         try:
-            dir_path = input("Enter the path to the Input.txt file:   ")
+            dir_path = raw_input("Enter the path to the Input.txt file:   ")
             inFile = open(dir_path, 'r')
 
             #parse the file by keywords: Question, frame, and compatibility relations = CR
@@ -63,18 +63,18 @@ class ParseDataToClass:
 
     # an array of frames
     def parseDataToFrame(self, str):
-        self.frames.append(str.rstrip('\n'))
+        self.frames.append(str.rstrip('\n').strip())
 
         return self.frames
 
     #an array of compatibility relations (CR)
     def parseDataToCR(self, str):
-        self.CR.append(str.rstrip('\n'))
+        self.CR.append(str.rstrip('\n').strip())
 
         return self.CR
 
     def parseDataToFOD(self,str):
-        self.FOD.append(str.rstrip('\n'))
+        self.FOD.append(str.rstrip('\n').strip())
 
 
 
