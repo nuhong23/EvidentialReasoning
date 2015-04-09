@@ -1,7 +1,7 @@
 
 from parseDataToClass import *
-from frame import *
 from compatibilityRelation import *
+from frame import *
 from analysis import *
 
 def main():
@@ -9,20 +9,30 @@ def main():
     parse = ParseDataToClass()
     parse.openInputFile()
 
-    print("Parsed Information for frames, CR, Question AND FOD \n")
+    print("Parsed Information for frames, CR, Question, AND FOD \n")
     print(parse.questionFrame)
     print (parse.frames)
     print(parse.CR)
     print(parse.FOD)
     print('\n\n')
 
+    countFOD = len(parse.FOD)
     frames = Frames()
     frames.organize_frames(parse.frames)
-    frames.crossProductFrames(parse.FOD, frames.frameInfo)
+    print(frames.mainFrame)
+    print(frames.mainPropositions)
+    print(countFOD)
 
-    print("\nFrame information and its propositions organized into an array\n")
-    print(frames.frameInfo)
-    print(frames.propositions)
+    if countFOD != 0:
+        frames.get_crossProductFrames(parse.FOD[1], parse.FOD[2])
+        parse.FOD.remove(parse.FOD[1])
+        parse.FOD.remove(parse.FOD[1])
+
+        #parse.cross.translate.insert(0,)
+        print("printing parse FOD from main")
+        print(parse.FOD)
+        print(countFOD)
+
     print('\n\n')
 
 '''

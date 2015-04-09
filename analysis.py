@@ -2,17 +2,18 @@
 
 class Analysis:
 
-    translatedFrame = {}
-    newFrame = []
+    translatedFrame1 = {}
+    translatedFrame2 = {}
+    insertFrame = []
     newRelations = []
 
     def __init__(self):
         pass
 
 
-
     def discount(self, alpha, mass):
         try:
+            print("Entered discount operation")
             alpha = float(alpha)
             if alpha >= 1 or alpha <= 0:
                 self.discount(alpha, mass)
@@ -29,32 +30,42 @@ class Analysis:
 
     def translate(self,frame1, relations1, frame2, relations2):
         print("printing in translating\n")
+        print(frame1)
+        print(frame2)
 
         value = []
-        key = frame1[0] + "x" + frame2[0]
+        x = 0
 
         try:
-            splitter1 = relations1.split(',')
-            splitter2 = relations2.split(',')
+            for i in relations1:
+                for j in relations2:
+                    key =  frame1[4] + ' v ' + str(j)
+                    value = float(frame1[3])
+                self.translatedFrame1[key] = value
 
-            for i in splitter1:
-                for j in splitter2:
-                    string = i + ' v ' + j
-                    value.append(string)
-                    self.newRelations.append(string)
+            theta = 1 - float(frame1[3])
+            key = "theta"
+            self.translatedFrame1[key] = theta
+
+            for j in relations2:
+                for i in relations1:
+                    key = frame2[4] + ' v ' + str(i)
+                    value = float(frame2[3])
+                self.translatedFrame2[key] = value
+
+            theta = 1 - float(frame2[3])
+            key = "theta"
+            self.translatedFrame2[key] = theta
+
+            print(self.translatedFrame1)
+            print(self.translatedFrame2)
 
         except AttributeError:
-            splitter2 = relations2.split(',')
+            print("Attribute error in translate operation")
 
-            for i in relations1:
-                for j in splitter2:
-                    string = i + ' v ' + j
-                    value.append(string)
 
-        self.newFrame.append(key)
-        self.translatedFrame[key] = value
-        print(self.translatedFrame)
-        return self.translatedFrame, self.newFrame, self.newRelations
+        self.insertFrame.append(key)
+        return self.translatedFrame, self.insertFrame, self.newRelations
 
 
     # Dempster's combination rule

@@ -1,105 +1,42 @@
 from analysis import *
-from signal import signal, alarm, SIGALRM
-
-# Author Tami Hong Le
-# 3/7/2015
-#
-# organize_frames:  Organizes the frames information and propositions into another list
-#
-# loops over each index of the frames list, extract the frame information and
-# propositions. Each elements are assigned in a new list called framesInfo and
-# propositions.
 
 
 class Frames:
 
-    propositions = []
-    frameInfo = []
-    frameName = []
-    relations = []
-    frames = {}
+    mainPropositions = []
+    mainFrame = []
+
 
     def __init__(self):
         pass
 
-
-
     #orgaizes the frames into lists
     def organize_frames(self,frames):
-
         for elements in frames:
             splitter = elements.split(":")
-
-            self.frameInfo.append(splitter[1:4])
-            self.propositions.append(splitter[5].split('/'))
-
-        return self.frameInfo, self.propositions
+            self.mainFrame.append(splitter[1:4])
+            self.mainPropositions.append(splitter[5].split('/'))
+        return self.mainFrame, self.mainPropositions
 
 
-
-    #crossing the frames to get a common cross product frame
-    def crossProductFrames(self, FOD, framesInfo):
-        print("\nEntering the cross product frame: \n")
-        print(FOD)
-        i = 0
-
-        #iterates through the FOD list and continues to organize it in preparation for
-        #frame translating
-        for elements in FOD:
-            splitter = elements.split(":")
-            alpha = splitter[3].strip()
-            float(alpha)
-            mass = splitter[4].strip()
-            float(mass)
-
-            discountOption = splitter[2].upper().strip()
-
-            #accounts for the discount operation before crossing the frames
-            if discountOption == 'YES':
-                print("Entering discount")
-                discounts = Analysis()
-                discounts.discount(alpha, mass)
-                splitter[3] = discounts.discounted
-                print(discounts.discounted)
-
-            self.frameName.append(splitter[1:6])
-            self.relations.append(splitter[6])
-
-            name = splitter[1]
-            self.frames[name] = self.relations[i]
-            i = i + 1
-
-        print(self.frameName)
-        print(self.frames)
+    def get_crossProductFrames(self, FOD1, FOD2):
 
         cross = Analysis()
-        x = 0
+        relations1 = []
+        relations2 = []
 
-        #keeps invoking the translate operation until it is out of range
-        while range(0,len(self.frameName)+ 2):
-            try:
-                if len(self.frameName) != 0:
-                    cross.translate(self.frameName[x],self.relations[x],self.frameName[x + 1], self.relations[x + 1])
+        splitter1 = FOD1.split(':')
+        splitter2 = FOD2.split(':')
 
-                    self.frameName.remove(self.frameName[x])
-                    self.frameName.remove(self.frameName[x])
-                    self.frameName.insert(x, cross.newFrame)
+        frameInfo1 = splitter1[1:6]
+        relations1.append(splitter1[6].split(','))
+        print(relations1)
 
-                    self.relations.remove(self.relations[x])
-                    self.relations.remove(self.relations[x])
-                    self.relations.insert(x, cross.newRelations)
+        frameInfo2 = splitter2[1:6]
+        relations2.append(splitter2[6].split(','))
+        print(relations2)
 
-                    newFrame = cross.newFrame
-                    self.frames[newFrame] = cross.newRelations
+        cross.translate(frameInfo1, relations1, frameInfo2, relations2)
 
-            except (IndexError,TypeError):
-                continue
-
-        #check to see if any of the frames have matching information
-        for x in self.frameInfo:
-            print("frame info")
-            print(x)
-
-        print(self.frames)
-        return self.frames
+        return cross.translate
 
