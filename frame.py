@@ -41,28 +41,28 @@ class Frames:
                 #iterates through the FOD list and continues to organize it in preparation for
         #frame translating
         for elements in FOD1,FOD2:
-            alpha1 = float(splitter1[3].strip())
-            alpha2 = float(splitter2[3].strip())
-            mass1 = float(splitter1[4].strip())
-            mass2 = float(splitter2[4].strip())
+            alpha1 = splitter1[3]
+            alpha2 = splitter2[3].strip()
+            mass1 = splitter1[4].strip()
+            mass2 = splitter2[4].strip()
 
             discountOption1 = splitter1[2].upper().strip()
             discountOption2 = splitter2[2].upper().strip()
 
             #accounts for the discount operation before crossing the frames
-            discounts = Analysis()
-
             if discountOption1 == 'YES':
-                print("Entering discount")
-                discounts.discount(alpha1, mass1)
-                splitter1[3] = discounts.discounted
-                print(discounts.discounted)
+                discounts1 = Analysis()
+                discounts1.discount(alpha1, mass1)
+                splitter1[3] = discounts1.discounted
+                splitter1[2] = "NO"
+                print(discounts1.discounted)
 
-            if discountOption2 == 'YES':
-                print("Entering discount")
-                discounts.discount(alpha2, mass2)
-                splitter2[3] = discounts.discounted
-                print(discounts.discounted)
+            elif discountOption2 == 'YES':
+                discounts2 = Analysis()
+                discounts2.discount(alpha2, mass2)
+                splitter2[3] = discounts2.discounted
+                splitter2[2] = "NO"
+                print(discounts2.discounted)
 
         cross.translate(frameInfo1, relations1, frameInfo2, relations2)
 

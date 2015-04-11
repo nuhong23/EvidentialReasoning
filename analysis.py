@@ -15,6 +15,7 @@ class Analysis:
         try:
             print("Entered discount operation")
             alpha = float(alpha)
+            mass = float(mass)
 
             if alpha >= 1 or alpha <= 0:
                 self.discount(alpha, mass)
