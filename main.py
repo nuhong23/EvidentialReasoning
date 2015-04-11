@@ -23,12 +23,14 @@ def main():
     print(frames.mainPropositions)
     print(countFOD)
 
-    if countFOD != 0:
-        frames.get_crossProductFrames(parse.FOD[1], parse.FOD[2])
-        parse.FOD.remove(parse.FOD[1])
-        parse.FOD.remove(parse.FOD[1])
+    newFrame = Analysis()
 
-        #parse.cross.translate.insert(0,)
+    while countFOD != 0:
+        frames.get_crossProductFrames(parse.FOD[0], parse.FOD[1])
+        parse.FOD.remove(parse.FOD[0])
+        parse.FOD.remove(parse.FOD[0])
+        #parse.FOD.insert(0, newFrame.insertFrame)
+
         print("printing parse FOD from main")
         print(parse.FOD)
         print(countFOD)

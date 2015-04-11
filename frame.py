@@ -28,15 +28,22 @@ class Frames:
         splitter1 = FOD1.split(':')
         splitter2 = FOD2.split(':')
 
-        frameInfo1 = splitter1[1:6]
-        relations1.append(splitter1[6].split(','))
+        frameInfo1 = splitter1[1:7]
+        relations1.append(splitter1[7].split(','))
+        relation1 = splitter1[7].split(',')
         print(relations1)
 
-        frameInfo2 = splitter2[1:6]
-        relations2.append(splitter2[6].split(','))
+        frameInfo2 = splitter2[1:7]
+        relations2.append(splitter2[7].split(','))
+        relation2 = splitter2[7].split(',')
         print(relations2)
 
         cross.translate(frameInfo1, relations1, frameInfo2, relations2)
+
+        #for i in relation1:
+            #for j in relation2:
+                #key = "FOD:" + frameInfo1[1] + 'x' + frameInfo2 + ':' + 'NO' + '0' + frameInfo1
+
 
         return cross.translate
 

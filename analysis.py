@@ -15,6 +15,7 @@ class Analysis:
         try:
             print("Entered discount operation")
             alpha = float(alpha)
+
             if alpha >= 1 or alpha <= 0:
                 self.discount(alpha, mass)
                 print("The number must be between 0 and 1.")
@@ -33,24 +34,22 @@ class Analysis:
         print(frame1)
         print(frame2)
 
-        value = []
+        print('\n')
 
+        value = []
         for i in relations1:
             for j in relations2:
-                key =  frame1[4] + ' v ' + str(j)
+                key = frame1[4] + ' v ' + str(j)
                 value = float(frame1[3])
-            self.translatedFrame1[key] = value
+                self.translatedFrame1[key] = value
+            theta = 1 - float(frame1[3])
+            key = "theta"
+            self.translatedFrame1[key] = theta
 
-        theta = 1 - float(frame1[3])
-        key = "theta"
-        self.translatedFrame1[key] = theta
+            key = frame2[4] + ' v ' + str(i)
+            value = float(frame2[3])
 
-        for j in relations2:
-            for i in relations1:
-                key = frame2[4] + ' v ' + str(i)
-                value = float(frame2[3])
-            self.translatedFrame2[key] = value
-
+        self.translatedFrame2[key] = value
         theta = 1 - float(frame2[3])
         key = "theta"
         self.translatedFrame2[key] = theta
@@ -58,12 +57,11 @@ class Analysis:
         print(self.translatedFrame1)
         print(self.translatedFrame2)
 
-        self.insertFrame.append(key)
-        return self.translatedFrame, self.insertFrame, self.newRelations
+        return self.translatedFrame1, self.translatedFrame2
 
 
     # Dempster's combination rule
-    def fuse(self,translatedFrame):
+    def fuse(self,translatedFrame1, translatedFrame2):
         pass
 
     def interpret(self):
