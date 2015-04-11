@@ -26,14 +26,17 @@ def main():
     newFrame = Analysis()
 
     while countFOD != 0:
-        frames.get_crossProductFrames(parse.FOD[0], parse.FOD[1])
-        parse.FOD.remove(parse.FOD[0])
-        parse.FOD.remove(parse.FOD[0])
-        #parse.FOD.insert(0, newFrame.insertFrame)
+        try:
+            frames.get_crossProductFrames(parse.FOD[0], parse.FOD[1])
+            parse.FOD.remove(parse.FOD[0])
+            parse.FOD.remove(parse.FOD[0])
+            #parse.FOD.insert(0, newFrame.insertFrame)
 
-        print("printing parse FOD from main")
-        print(parse.FOD)
-        print(countFOD)
+            print("printing parse FOD from main")
+            print(parse.FOD)
+            print(countFOD)
+        except IndexError:
+            break
 
     print('\n\n')
 
