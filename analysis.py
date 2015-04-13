@@ -33,15 +33,13 @@ class Analysis:
     def translate(self,frame1, relations1, frame2, relations2):
         print("printing in translating\n")
 
-        value = []
-
-        length_ofFrame1 = len(frame1)
-        length_ofFrame2 = len(frame2)
-
         x = 3
         y = 3
         theta = 0
         theta2 = 0
+
+        length_ofFrame1 = len(frame1)
+        length_ofFrame2 = len(frame2)
 
         while x < length_ofFrame1:
             while y < length_ofFrame2:
