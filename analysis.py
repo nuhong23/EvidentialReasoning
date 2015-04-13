@@ -65,6 +65,7 @@ class Analysis:
                 self.translatedFrame2[key] = theta2
 
                 print(self.translatedFrame2)
+
                 y = y + 2
             x = x + 2
 
