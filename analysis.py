@@ -18,8 +18,8 @@ class Analysis:
             mass = float(mass)
 
             if alpha >= 1 or alpha <= 0:
-                self.discount(alpha, mass)
                 print("The number must be between 0 and 1.")
+                self.discount(alpha, mass)
             else:
                 self.discounted = float(alpha) * float(mass)
                 return self.discounted
@@ -48,31 +48,30 @@ class Analysis:
                 for i in relations1:
                     for j in relations2:
                         key = frame1[x + 1] + ' v ' + str(j)
-                        value = float(frame1[x])
-                        self.translatedFrame1[key] = value
+                        mass = float(frame1[x])
+                        self.translatedFrame1[key] = mass
 
-                        theta = 1 - value - theta
+                        theta = 1 - mass - theta
                         key = "theta"
                         self.translatedFrame1[key] = theta
 
                         print(self.translatedFrame1)
 
                     key2 = frame2[y + 1] + ' v ' + str(i)
-                    value2 = float(frame2[y])
+                    mass2 = float(frame2[y])
 
-                self.translatedFrame2[key2] = value2
+                self.translatedFrame2[key2] = mass2
 
-                theta2 = 1 - value2 - theta2
+                theta2 = 1 - mass2 - theta2
                 key = "theta"
                 self.translatedFrame2[key] = theta2
 
                 print(self.translatedFrame2)
                 y = y + 2
-            print(y)
             x = x + 2
-        print(x)
 
         return self.translatedFrame1, self.translatedFrame2
+
 
 
     # Dempster's combination rule
