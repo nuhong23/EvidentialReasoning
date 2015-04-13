@@ -32,31 +32,45 @@ class Analysis:
 
     def translate(self,frame1, relations1, frame2, relations2):
         print("printing in translating\n")
-        print(frame1)
-        print(frame2)
-
-        print('\n')
 
         value = []
-        for i in relations1:
-            for j in relations2:
-                key = frame1[4] + ' v ' + str(j)
-                value = float(frame1[3])
-                self.translatedFrame1[key] = value
-            theta = 1 - float(frame1[3])
-            key = "theta"
-            self.translatedFrame1[key] = theta
 
-            key = frame2[4] + ' v ' + str(i)
-            value = float(frame2[3])
+        length_ofFrame1 = len(frame1)
+        length_ofFrame2 = len(frame2)
 
-        self.translatedFrame2[key] = value
-        theta = 1 - float(frame2[3])
-        key = "theta"
-        self.translatedFrame2[key] = theta
+        x = 3
+        y = 3
+        theta = 0
+        theta2 = 0
 
-        print(self.translatedFrame1)
-        print(self.translatedFrame2)
+        while x < length_ofFrame1:
+            while y < length_ofFrame2:
+                for i in relations1:
+                    for j in relations2:
+                        key = frame1[x + 1] + ' v ' + str(j)
+                        value = float(frame1[x])
+                        self.translatedFrame1[key] = value
+
+                        theta = 1 - value - theta
+                        key = "theta"
+                        self.translatedFrame1[key] = theta
+
+                        print(self.translatedFrame1)
+
+                    key2 = frame2[y + 1] + ' v ' + str(i)
+                    value2 = float(frame2[y])
+
+                self.translatedFrame2[key2] = value2
+
+                theta2 = 1 - value2 - theta2
+                key = "theta"
+                self.translatedFrame2[key] = theta2
+
+                print(self.translatedFrame2)
+                y = y + 2
+            print(y)
+            x = x + 2
+        print(x)
 
         return self.translatedFrame1, self.translatedFrame2
 

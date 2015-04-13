@@ -10,6 +10,7 @@ class Frames:
     def __init__(self):
         pass
 
+
     #orgaizes the frames into lists
     def organize_frames(self,frames):
         for elements in frames:
@@ -19,6 +20,7 @@ class Frames:
         return self.mainFrame, self.mainPropositions
 
 
+    #to get the cross product frames after discount and translating operations
     def get_crossProductFrames(self, FOD1, FOD2):
 
         cross = Analysis()
@@ -36,8 +38,7 @@ class Frames:
         discountOption1 = splitter1[2].upper().strip()
         discountOption2 = splitter2[2].upper().strip()
 
-        #iterates through the FOD list and continues to organize it in preparation for
-        #frame translating
+        #iterates through the FOD list and check for discounting operation
         for elements in FOD1,FOD2:
             #accounts for the discount operation before crossing the frames
             if discountOption1 == 'YES':
@@ -47,6 +48,8 @@ class Frames:
                 splitter1[3] = 0
                 splitter1[2] = "NO"
                 print(discounts1.discounted)
+                print('\n')
+                break
 
             elif discountOption2 == 'YES':
                 discounts2 = Analysis()
@@ -55,23 +58,33 @@ class Frames:
                 splitter2[3] = 0
                 splitter2[2] = "NO"
                 print(discounts2.discounted)
+                print('\n')
+                break
 
-        frameInfo1 = splitter1[1:7]
-        relations1.append(splitter1[7].split(','))
-        relation1 = splitter1[7].split(',')
-        print(relations1)
+        length_ofFrameInfo1 = len(splitter1) - 1
+        length_ofFrameInfo2 = len(splitter2) - 1
+        print("length of frame information is : " + str(length_ofFrameInfo1))
 
-        frameInfo2 = splitter2[1:7]
-        relations2.append(splitter2[7].split(','))
-        relation2 = splitter2[7].split(',')
-        print(relations2)
+        frameInfo1 = splitter1[1: length_ofFrameInfo1]
+        relations1.append(splitter1[length_ofFrameInfo1].split(','))
+        relation1 = splitter1[length_ofFrameInfo1].split(',')
+
+        frameInfo2 = splitter2[1: length_ofFrameInfo2]
+        relations2.append(splitter2[length_ofFrameInfo2].split(','))
+        relation2 = splitter2[length_ofFrameInfo2].split(',')
+
+        string =''
+
+        for i in relation1:
+            for j in relation2:
+                string = string + i + j + ','
+
+        insertFrame = "FOD:" + frameInfo1[0] + 'x' + frameInfo2[0] + ': NO:' + '0:' + string
+
+        print(frameInfo1)
+        print(frameInfo2)
 
         cross.translate(frameInfo1, relations1, frameInfo2, relations2)
-
-        #for i in relation1:
-            #for j in relation2:
-                #key = "FOD:" + frameInfo1[1] + 'x' + frameInfo2 + ':' + 'NO' + '0' + frameInfo1
-
 
         return cross.translate
 
