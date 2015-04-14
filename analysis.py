@@ -5,8 +5,6 @@ class Analysis:
     translatedFrame1 = {}
     translatedFrame2 = {}
     newFrame = ''
-    newRelations = []
-    discounted = 0
 
     def __init__(self):
         pass
