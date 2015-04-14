@@ -36,8 +36,8 @@ class Frames:
         discountOption1 = splitter1[2].upper().strip()
         discountOption2 = splitter2[2].upper().strip()
 
-        length_ofFOD1 = len(splitter1) - 1
-        length_ofFOD2 = len(splitter2) - 1
+        length_ofFOD1 = len(splitter1) - 2
+        length_ofFOD2 = len(splitter2) - 2
 
         x = 4
         y = 4

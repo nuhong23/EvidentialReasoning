@@ -82,11 +82,12 @@ class Analysis:
 
                     string1 = string1 + ':' + str(frame1[x]) + ':' + key
                     string2 = string2 + ':' + str(frame2[x]) + ':' + key2
-
-                y = y + 2
-                x = x + 2
             except:
-                break
+                print("It didn't print out everything")
+
+            x = x + 2
+            y = y + 2
+
 
         self.newFrame = "FOD:" + frame1[0] + 'x' + frame2[0] + ': NO:' + '0' + string1 + string2
 
