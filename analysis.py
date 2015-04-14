@@ -4,7 +4,7 @@ class Analysis:
 
     translatedFrame1 = {}
     translatedFrame2 = {}
-    insertFrame = ''
+    newFrame = ''
     newRelations = []
     discounted = 0
 
@@ -73,13 +73,12 @@ class Analysis:
             except:
                 break
 
-        self.insertFrame = "FOD:" + frame1[0] + 'x' + frame2[0] + ': NO:' + '0:' + string1 + string2
+        self.newFrame = "FOD:" + frame1[0] + 'x' + frame2[0] + ': NO:' + '0' + string1 + string2
 
-        print(self.insertFrame)
         print(self.translatedFrame1)
         print(self.translatedFrame2)
 
-        return self.translatedFrame1, self.translatedFrame2, self.insertFrame
+        return self.translatedFrame1, self.translatedFrame2, self.newFrame
 
 
 

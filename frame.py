@@ -5,7 +5,7 @@ class Frames:
 
     mainPropositions = []
     mainFrame = []
-
+    insertFrame = ''
 
     def __init__(self):
         pass
@@ -82,19 +82,18 @@ class Frames:
         relations2.append(splitter2[length_ofFrameInfo2].split(','))
         relation2 = splitter2[length_ofFrameInfo2].split(',')
 
-        print(frameInfo1)
-        print(frameInfo2)
-
         cross.translate(frameInfo1, relations1, frameInfo2, relations2)
 
-        string =''
+        string = ''
 
-        #makes a new crossed frame
+        #appends the cross product propositions to a new FOD frame
         for i in relation1:
             for j in relation2:
                 string = string + i + j + ','
 
-        insertFrame = cross.insertFrame + ':' + frameInfo1[0] + 'x:' + frameInfo2[0] + ':' + string
-        print(insertFrame)
-        return cross.translate
+        self.insertFrame = cross.newFrame + ':' + frameInfo1[0] + 'x:' + frameInfo2[0] + ':' + string
+        print("Printing new FOD from frame")
+        print(self.insertFrame)
+
+        return cross.translate, self.insertFrame
 
