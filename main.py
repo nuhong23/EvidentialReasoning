@@ -32,9 +32,9 @@ def main():
             parse.FOD.remove(parse.FOD[0])
             #parse.FOD.insert(0, newFrame.insertFrame)
 
-            print("printing parse FOD from main")
-            print(parse.FOD)
-            print(countFOD)
+            #print("printing parse FOD from main")
+            #print(parse.FOD)
+            #print(countFOD)
         except IndexError:
             break
 

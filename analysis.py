@@ -6,6 +6,7 @@ class Analysis:
     translatedFrame2 = {}
     insertFrame = []
     newRelations = []
+    discounted = 0
 
     def __init__(self):
         pass
@@ -25,49 +26,58 @@ class Analysis:
                 return self.discounted
 
         except (TypeError,ValueError):
-            print("Must be a number and not a string.")
-            self.discount(alpha, mass)
+            print("Must be a numeric value and not a string value.\n")
+            print("Please recheck the input text file and make sure all values are correct.")
 
 
 
     def translate(self,frame1, relations1, frame2, relations2):
-        print("printing in translating\n")
+        print("Printing in translating\n")
 
         x = 3
         y = 3
+
+        mass = 0
+        mass2 = 0
+
         theta = 0
         theta2 = 0
+
+        string1 = ''
+        string2 = ''
 
         length_ofFrame1 = len(frame1)
         length_ofFrame2 = len(frame2)
 
-        while x < length_ofFrame1:
-            while y < length_ofFrame2:
+        while y < length_ofFrame2 or x < length_ofFrame1:
+            try:
                 for i in relations1:
                     for j in relations2:
                         key = frame1[x + 1] + ' v ' + str(j)
-                        mass = float(frame1[x])
-                        self.translatedFrame1[key] = mass
+                        mass = mass + float(frame1[x])
+                        self.translatedFrame1[key] = frame1[x]
+                        theta = 1 - mass
+                        print(theta)
+                        self.translatedFrame1["theta"] = theta
 
-                        theta = 1 - mass - theta
-                        key = "theta"
-                        self.translatedFrame1[key] = theta
+                        key2 = frame2[y + 1] + ' v ' + str(i)
+                        mass2 = mass2 + float(frame2[y])
+                        self.translatedFrame2[key2] = frame2[y]
+                        theta2 = 1 - mass2
+                        self.translatedFrame2["theta"] = theta2
 
-                        print(self.translatedFrame1)
-
-                    key2 = frame2[y + 1] + ' v ' + str(i)
-                    mass2 = float(frame2[y])
-
-                self.translatedFrame2[key2] = mass2
-
-                theta2 = 1 - mass2 - theta2
-                key = "theta"
-                self.translatedFrame2[key] = theta2
-
-                print(self.translatedFrame2)
+                    string1 = string1 + ':' + str(frame1[x]) + ':' + key
+                    string2 = string2 + ':' + str(frame2[x]) + ':' + key2
 
                 y = y + 2
-            x = x + 2
+                x = x + 2
+            except:
+                break
+
+        insertFrame = "FOD:" + frame1[0] + 'x' + frame2[0] + ': NO:' + '0:' + string1 + string2
+        print(insertFrame)
+        print(self.translatedFrame1)
+        print(self.translatedFrame2)
 
         return self.translatedFrame1, self.translatedFrame2
 

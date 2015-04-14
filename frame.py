@@ -32,38 +32,47 @@ class Frames:
 
         alpha1 = splitter1[3]
         alpha2 = splitter2[3].strip()
-        mass1 = splitter1[4].strip()
-        mass2 = splitter2[4].strip()
 
         discountOption1 = splitter1[2].upper().strip()
         discountOption2 = splitter2[2].upper().strip()
 
+        length_ofFOD1 = len(splitter1) - 2
+        length_ofFOD2 = len(splitter2) - 2
+
+        x = 4
+        y = 4
+
         #iterates through the FOD list and check for discounting operation
-        for elements in FOD1,FOD2:
+        while y < length_ofFOD2 or x < length_ofFOD1:
             #accounts for the discount operation before crossing the frames
-            if discountOption1 == 'YES':
+            if discountOption1 == 'YES' and x < length_ofFOD1:
+                mass1 = splitter1[x].strip()
                 discounts1 = Analysis()
-                discounts1.discount(alpha1, mass1)
-                splitter1[4] = discounts1.discounted
+                splitter1[x] = discounts1.discount(alpha1, mass1)
                 splitter1[3] = 0
                 splitter1[2] = "NO"
                 print(discounts1.discounted)
                 print('\n')
-                break
+                x = x + 2
 
-            elif discountOption2 == 'YES':
+
+            elif discountOption2 == 'YES' and y < length_ofFOD2:
+                mass2 = splitter2[y].strip()
                 discounts2 = Analysis()
-                discounts2.discount(alpha2, mass2)
-                splitter2[4] = discounts2.discounted
+                splitter2[y] = discounts2.discount(alpha2, mass2)
                 splitter2[3] = 0
                 splitter2[2] = "NO"
                 print(discounts2.discounted)
                 print('\n')
-                break
+                y = y + 2
+
+            else:
+                x = x + 2
+                y = y + 2
+
 
         length_ofFrameInfo1 = len(splitter1) - 1
         length_ofFrameInfo2 = len(splitter2) - 1
-        print("length of frame information is : " + str(length_ofFrameInfo1))
 
         frameInfo1 = splitter1[1: length_ofFrameInfo1]
         relations1.append(splitter1[length_ofFrameInfo1].split(','))
@@ -75,6 +84,7 @@ class Frames:
 
         string =''
 
+        #makes a new crossed frame
         for i in relation1:
             for j in relation2:
                 string = string + i + j + ','
