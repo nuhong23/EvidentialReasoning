@@ -4,7 +4,7 @@ class Analysis:
 
     translatedFrame1 = {}
     translatedFrame2 = {}
-    insertFrame = []
+    insertFrame = ''
     newRelations = []
     discounted = 0
 
@@ -57,7 +57,6 @@ class Analysis:
                         mass = mass + float(frame1[x])
                         self.translatedFrame1[key] = frame1[x]
                         theta = 1 - mass
-                        print(theta)
                         self.translatedFrame1["theta"] = theta
 
                         key2 = frame2[y + 1] + ' v ' + str(i)
@@ -74,12 +73,13 @@ class Analysis:
             except:
                 break
 
-        insertFrame = "FOD:" + frame1[0] + 'x' + frame2[0] + ': NO:' + '0:' + string1 + string2
-        print(insertFrame)
+        self.insertFrame = "FOD:" + frame1[0] + 'x' + frame2[0] + ': NO:' + '0:' + string1 + string2
+
+        print(self.insertFrame)
         print(self.translatedFrame1)
         print(self.translatedFrame2)
 
-        return self.translatedFrame1, self.translatedFrame2
+        return self.translatedFrame1, self.translatedFrame2, self.insertFrame
 
 
 

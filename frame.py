@@ -82,6 +82,11 @@ class Frames:
         relations2.append(splitter2[length_ofFrameInfo2].split(','))
         relation2 = splitter2[length_ofFrameInfo2].split(',')
 
+        print(frameInfo1)
+        print(frameInfo2)
+
+        cross.translate(frameInfo1, relations1, frameInfo2, relations2)
+
         string =''
 
         #makes a new crossed frame
@@ -89,12 +94,7 @@ class Frames:
             for j in relation2:
                 string = string + i + j + ','
 
-        insertFrame = "FOD:" + frameInfo1[0] + 'x' + frameInfo2[0] + ': NO:' + '0:' + string
-
-        print(frameInfo1)
-        print(frameInfo2)
-
-        cross.translate(frameInfo1, relations1, frameInfo2, relations2)
-
+        insertFrame = cross.insertFrame + ':' + frameInfo1[0] + 'x:' + frameInfo2[0] + ':' + string
+        print(insertFrame)
         return cross.translate
 
