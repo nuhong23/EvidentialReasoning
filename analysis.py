@@ -14,7 +14,7 @@ class Analysis:
 
     def discount(self, alpha, mass):
         try:
-            print("Entered discount operation")
+            #print("Entered discount operation")
             alpha = float(alpha)
             mass = float(mass)
 
@@ -49,21 +49,36 @@ class Analysis:
         length_ofFrame1 = len(frame1)
         length_ofFrame2 = len(frame2)
 
+        self.translatedFrame1.clear()
+        self.translatedFrame2.clear()
+
         while y < length_ofFrame2 or x < length_ofFrame1:
             try:
+                print("Printing in while loop of analysis.py")
+                print(frame1)
+                print(relations1)
+                print(frame2)
+                print(relations2)
+
                 for i in relations1:
                     for j in relations2:
                         key = frame1[x + 1] + ' v ' + str(j)
-                        mass = mass + float(frame1[x])
-                        self.translatedFrame1[key] = frame1[x]
-                        theta = 1 - mass
+                        mass = float(mass) + float(frame1[x])
+                        self.translatedFrame1[key] = float(frame1[x])
+                        theta = float(1 - mass)
                         self.translatedFrame1["theta"] = theta
+                        print("printing translatedFrame1")
+                        print(self.translatedFrame1)
+                        print('\n')
 
                         key2 = frame2[y + 1] + ' v ' + str(i)
-                        mass2 = mass2 + float(frame2[y])
-                        self.translatedFrame2[key2] = frame2[y]
-                        theta2 = 1 - mass2
+                        mass2 = float(mass2) + float(frame2[y])
+                        self.translatedFrame2[key2] = float(frame2[y])
+                        theta2 = float(1 - mass2)
                         self.translatedFrame2["theta"] = theta2
+                        print("Printing trnalstedframe2")
+                        print(self.translatedFrame2)
+                        print('\n')
 
                     string1 = string1 + ':' + str(frame1[x]) + ':' + key
                     string2 = string2 + ':' + str(frame2[x]) + ':' + key2
@@ -74,9 +89,6 @@ class Analysis:
                 break
 
         self.newFrame = "FOD:" + frame1[0] + 'x' + frame2[0] + ': NO:' + '0' + string1 + string2
-
-        print(self.translatedFrame1)
-        print(self.translatedFrame2)
 
         return self.translatedFrame1, self.translatedFrame2, self.newFrame
 

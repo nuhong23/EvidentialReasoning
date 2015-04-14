@@ -36,8 +36,8 @@ class Frames:
         discountOption1 = splitter1[2].upper().strip()
         discountOption2 = splitter2[2].upper().strip()
 
-        length_ofFOD1 = len(splitter1) - 2
-        length_ofFOD2 = len(splitter2) - 2
+        length_ofFOD1 = len(splitter1) - 1
+        length_ofFOD2 = len(splitter2) - 1
 
         x = 4
         y = 4
@@ -51,8 +51,8 @@ class Frames:
                 splitter1[x] = discounts1.discount(alpha1, mass1)
                 splitter1[3] = 0
                 splitter1[2] = "NO"
-                print(discounts1.discounted)
-                print('\n')
+                #print(discounts1.discounted)
+                #print('\n')
                 x = x + 2
 
 
@@ -62,8 +62,8 @@ class Frames:
                 splitter2[y] = discounts2.discount(alpha2, mass2)
                 splitter2[3] = 0
                 splitter2[2] = "NO"
-                print(discounts2.discounted)
-                print('\n')
+                #print(discounts2.discounted)
+                #print('\n')
                 y = y + 2
 
             else:
@@ -77,21 +77,34 @@ class Frames:
         frameInfo1 = splitter1[1: length_ofFrameInfo1]
         relations1.append(splitter1[length_ofFrameInfo1].split(','))
         relation1 = splitter1[length_ofFrameInfo1].split(',')
+        print("Printing frameInfo1")
+        print(frameInfo1)
+        print(relations1)
 
         frameInfo2 = splitter2[1: length_ofFrameInfo2]
         relations2.append(splitter2[length_ofFrameInfo2].split(','))
         relation2 = splitter2[length_ofFrameInfo2].split(',')
+        print("Printing frameInfo2")
+        print(frameInfo2)
+        print(relations2)
 
         cross.translate(frameInfo1, relations1, frameInfo2, relations2)
 
         string = ''
+        print("length of relations is : " + str(len(relation1)))
 
+        count = 1
         #appends the cross product propositions to a new FOD frame
         for i in relation1:
             for j in relation2:
-                string = string + i + j + ','
+                if count < 2:
+                    string = i + j
+                    count = count + 1
+                else:
+                    string = string + ',' + i + j
+                    count = count + 1
 
-        self.insertFrame = cross.newFrame + ':' + frameInfo1[0] + 'x:' + frameInfo2[0] + ':' + string
+        self.insertFrame = cross.newFrame + ':' + frameInfo1[0] + 'x' + frameInfo2[0] + ':' + string
         print("Printing new FOD from frame")
         print(self.insertFrame)
 
