@@ -77,21 +77,15 @@ class Frames:
         frameInfo1 = splitter1[1: length_ofFrameInfo1]
         relations1.append(splitter1[length_ofFrameInfo1].split(','))
         relation1 = splitter1[length_ofFrameInfo1].split(',')
-        print("Printing frameInfo1")
-        print(frameInfo1)
-        print(relations1)
+
 
         frameInfo2 = splitter2[1: length_ofFrameInfo2]
         relations2.append(splitter2[length_ofFrameInfo2].split(','))
         relation2 = splitter2[length_ofFrameInfo2].split(',')
-        print("Printing frameInfo2")
-        print(frameInfo2)
-        print(relations2)
 
         cross.translate(frameInfo1, relations1, frameInfo2, relations2)
 
         string = ''
-        print("length of relations is : " + str(len(relation1)))
 
         count = 1
         #appends the cross product propositions to a new FOD frame
@@ -105,8 +99,6 @@ class Frames:
                     count = count + 1
 
         self.insertFrame = cross.newFrame + ':' + frameInfo1[0] + 'x' + frameInfo2[0] + ':' + string
-        print("Printing new FOD from frame")
-        print(self.insertFrame)
 
         return cross.translate, self.insertFrame
 
