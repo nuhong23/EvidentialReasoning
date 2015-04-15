@@ -7,6 +7,7 @@ class ParseDataToClass:
     CR = []
     questionFrame = []
     FOD = []
+    dir_path = ''
 
     def __init__(self):
         pass
@@ -15,8 +16,8 @@ class ParseDataToClass:
 
         #open file, if path does not exist, print error message
         try:
-            dir_path = input("Enter the path to the Input.txt file:\t")
-            inFile = open(dir_path, 'r')
+            self.dir_path = input("Enter the path to the Input.txt file:")
+            inFile = open(self.dir_path, 'r')
 
             #parse the file by keywords: Question, frame, and compatibility relations = CR
             for line in inFile:
@@ -44,7 +45,7 @@ class ParseDataToClass:
                     break
 
             inFile.close()
-            return self.frames, self.CR, self.questionFrame
+            return self.frames, self.CR, self.questionFrame, self.dir_path
 
         #throw an exception and reopen the openInputFile method again
         except IOError:

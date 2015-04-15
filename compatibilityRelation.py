@@ -1,22 +1,39 @@
 
 class CompatibilityRelations:
 
-    compatibilityRelations = []
-    compatibilityInfo = []
-    relatedTo = []
+    dir_path = ''
 
     def __init__(self):
         pass
 
-    def organize_relations(self, CR):
+    #Opens up a new file in the same location as the Input.txt file and prints the
+    #relations in there.
+    def get_relations(self, crossProductFrame, input_dir_path):
 
-        for elements in CR:
-            splitter = elements.split(':')
-            key = splitter[0]
-            self.compatibilityInfo.append(splitter[1:3])
-            self.relatedTo.append(splitter[3])
+        print("In CR.py")
 
-        return self.compatibilityInfo, self.relatedTo
+        outputText = open(input_dir_path + 'Output.txt', 'w')
+
+        splitter = crossProductFrame[0].split(':')
+
+        length_ofCPF = len(splitter) - 1
+        relations = splitter[length_ofCPF].split(',')
+        length_of_CR = len(relations)
+
+        outputText.write("Please make your connect you relations. You have : " + str(length_of_CR)   + " relations to make. \n")
+        outputText.write("Compatibility Relations are: \n")
+
+        count = 1
+        for elements in relations:
+            outputText.write('CR' + str(count) + ': fill the answers here :' + elements + '\n')
+            count = count + 1
+        outputText.close()
+        self.dir_path = input_dir_path + 'Output.txt'
+        print("Open the file at :   " + self.dir_path + "Outout.txt" + "and make the proper relations to the question frame." )
+
+
+        return self.dir_path
+
 
 
 

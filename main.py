@@ -34,6 +34,11 @@ def main():
     print("printing from main")
     print(parse.FOD)
 
+    outputTextFile = CompatibilityRelations()
+    outputTextFile.get_relations(parse.FOD, parse.dir_path)
+    print(parse.dir_path)
+
+
 
 '''
     relations = CompatibilityRelations()
